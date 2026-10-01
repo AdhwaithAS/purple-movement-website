@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 
 export const Manifesto = () => {
   return (
-    <section className="w-full bg-pm-bg-dark text-pm-text-primary py-20 px-6 md:px-12 lg:px-20 border-t border-white/5">
+    <section className="w-full bg-pm-bg-dark text-pm-text-primary py-20 px-6 md:px-12 lg:px-20 border-t border-pm-card-border">
       <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
         <div className="lg:col-span-4 relative">
           <div className="lg:sticky lg:top-32">
@@ -31,13 +31,13 @@ export const Manifesto = () => {
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           >
-            <h3 className="text-2xl md:text-3xl font-bold font-montserrat mb-4 text-white">
+            <h3 className="text-2xl md:text-3xl font-bold font-montserrat mb-4 text-pm-text-primary">
               The Manifestors
             </h3>
             <p className="text-base md:text-lg text-pm-text-secondary font-poppins leading-relaxed border-l border-pm-border-hover pl-5">
               We are the Manifestors of Change. Not waiting for the future, but
               building it with{" "}
-              <span className="text-white font-medium">
+              <span className="text-pm-text-primary font-medium">
                 courage, code, creativity, and clarity
               </span>
               . We are the voice of a generation that refuses to settle.
@@ -50,12 +50,12 @@ export const Manifesto = () => {
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           >
-            <h3 className="text-2xl md:text-3xl font-bold font-montserrat mb-4 text-white">
+            <h3 className="text-2xl md:text-3xl font-bold font-montserrat mb-4 text-pm-text-primary">
               The Producers
             </h3>
             <p className="text-base md:text-lg text-pm-text-secondary font-poppins leading-relaxed border-l border-pm-border-hover pl-5">
               We are not consumers of culture;{" "}
-              <span className="text-white font-medium">
+              <span className="text-pm-text-primary font-medium">
                 we are producers of purpose.
               </span>{" "}
               We break barriers for every young mind daring to dream. We believe
@@ -70,7 +70,7 @@ export const Manifesto = () => {
             transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
             className="py-4"
           >
-            <p className="text-2xl md:text-4xl font-bold font-montserrat leading-tight text-white">
+            <p className="text-2xl md:text-4xl font-bold font-montserrat leading-tight text-pm-text-primary">
               In access, not gatekeeping.
               <br />
               In bold visions, not borrowed templates.
@@ -91,7 +91,7 @@ export const Manifesto = () => {
             <span className="text-xs md:text-sm font-semibold text-pm-accent mb-3 uppercase tracking-widest block font-montserrat">
               The Movement
             </span>
-            <p className="text-2xl md:text-4xl font-bold font-montserrat text-white leading-tight mb-3">
+            <p className="text-2xl md:text-4xl font-bold font-montserrat text-pm-text-primary leading-tight mb-3">
               This is <span className="text-pm-accent">The Purple Movement.</span>
             </p>
             <p className="text-base md:text-lg text-pm-text-secondary font-poppins">
@@ -107,7 +107,7 @@ export const Manifesto = () => {
             transition={{ duration: 0.6, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
             className="pt-4"
           >
-            <p className="text-3xl md:text-5xl font-bold font-montserrat tracking-tight text-white leading-tight">
+            <p className="text-3xl md:text-5xl font-bold font-montserrat tracking-tight text-pm-text-primary leading-tight">
               We are the energy.
               <br />
               We are the strategy.

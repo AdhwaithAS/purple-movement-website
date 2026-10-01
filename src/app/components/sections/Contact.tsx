@@ -54,7 +54,7 @@ export const Contact = () => {
     }
   };
   return (
-    <section id="contact" aria-labelledby="contact-heading" className="w-[95%] sm:w-[90%] lg:w-[1070px] mx-auto mt-12 sm:mt-16 md:mt-24 px-6 sm:px-8 lg:px-12 py-8 sm:py-12 md:py-14 bg-gradient-to-b from-zinc-900/90 via-slate-950/95 to-zinc-950 rounded-2xl sm:rounded-3xl border border-white/10 shadow-2xl flex flex-col sm:flex-row items-center justify-between gap-6 sm:gap-8 lg:gap-12 backdrop-blur-sm scroll-mt-20">
+    <section id="contact" aria-labelledby="contact-heading" className="w-[95%] sm:w-[90%] lg:w-[1070px] mx-auto mt-12 sm:mt-16 md:mt-24 px-6 sm:px-8 lg:px-12 py-8 sm:py-12 md:py-14 bg-gradient-to-b from-pm-card via-pm-bg-dark to-pm-bg rounded-2xl sm:rounded-3xl border border-pm-card-border shadow-2xl flex flex-col sm:flex-row items-center justify-between gap-6 sm:gap-8 lg:gap-12 backdrop-blur-sm scroll-mt-20">
       
       {/* Image Section */}
       <div className="relative w-20 h-20 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-56 lg:h-56 flex-shrink-0 hidden sm:block">
@@ -70,12 +70,12 @@ export const Contact = () => {
       {/* Content Section */}
       <div className="w-full flex flex-col items-start text-left gap-3 sm:gap-4">
         {/* Heading */}
-        <h2 id="contact-heading" className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-montserrat text-white leading-tight">
-          Any <span className="text-purple-400">Questions?</span>
+        <h2 id="contact-heading" className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-montserrat text-pm-text-primary leading-tight">
+          Any <span className="text-pm-accent">Questions?</span>
         </h2>
 
         {/* Subtext */}
-        <p className="text-sm sm:text-base md:text-lg text-zinc-300 font-medium font-poppins max-w-xl leading-relaxed">
+        <p className="text-sm sm:text-base md:text-lg text-pm-text-secondary font-medium font-poppins max-w-xl leading-relaxed">
           We&apos;re here to help, reach out anytime!
         </p>
 
@@ -89,21 +89,21 @@ export const Contact = () => {
               value={question}
               onChange={(e) => setQuestion(e.target.value)}
               placeholder="Type your question..."
-              className="flex-1 w-full sm:max-w-md h-14 bg-zinc-950/60 border border-zinc-700/80 text-white text-base px-4 py-3 rounded-xl font-poppins placeholder:text-zinc-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:border-transparent transition"
+              className="flex-1 w-full sm:max-w-md h-14 bg-pm-card border border-pm-card-border text-pm-text-primary text-base px-4 py-3 rounded-xl font-poppins placeholder:text-pm-text-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pm-accent focus-visible:border-transparent transition"
               disabled={isSubmitting}
             />
             <button
               type="submit"
               disabled={!question.trim() || isSubmitting}
-              className={`w-full sm:w-auto h-14 px-8 rounded-xl font-poppins text-base font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 ${
+              className={`w-full sm:w-auto h-14 px-8 rounded-xl font-poppins text-base font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pm-accent ${
                 question.trim() && !isSubmitting
-                  ? 'bg-purple-600 hover:bg-purple-500 text-white shadow-lg shadow-purple-600/20 active:scale-95'
-                  : 'bg-zinc-800/80 text-zinc-500 border border-white/5 cursor-not-allowed'
+                  ? 'bg-pm-primary hover:bg-pm-primary-hover text-pm-text-primary shadow-[var(--pm-glow)] hover:shadow-[var(--pm-glow-strong)] active:scale-95'
+                  : 'bg-pm-card/40 text-pm-text-muted border border-pm-card-border cursor-not-allowed'
               }`}
             >
               {isSubmitting ? (
                 <div className="flex items-center justify-center gap-2">
-                  <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                  <div className="w-4 h-4 border-2 border-pm-text-primary/30 border-t-pm-text-primary rounded-full animate-spin" />
                   <span>Sending...</span>
                 </div>
               ) : (
@@ -114,12 +114,12 @@ export const Contact = () => {
           
           {/* Status Messages */}
           {submitStatus === 'success' && (
-            <p className="text-emerald-400 text-sm font-poppins flex items-center gap-1.5">
+            <p className="text-pm-success text-sm font-poppins flex items-center gap-1.5">
               <span>✓</span> Question submitted successfully! We&apos;ll get back to you soon.
             </p>
           )}
           {submitStatus === 'error' && (
-            <p className="text-red-400 text-sm font-poppins flex items-center gap-1.5">
+            <p className="text-pm-error text-sm font-poppins flex items-center gap-1.5">
               <span>✗</span> Failed to submit question. Please try again.
             </p>
           )}

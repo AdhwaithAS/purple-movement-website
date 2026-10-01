@@ -29,7 +29,7 @@ const PyramidChart: React.FC<PyramidChartProps> = ({
       <div 
         className="absolute inset-0 rounded-full pointer-events-none filter blur-3xl opacity-60"
         style={{
-          background: "radial-gradient(circle, var(--pm-glow) 0%, rgba(59, 7, 100, 0.15) 50%, transparent 75%)",
+          background: "radial-gradient(circle, var(--pm-glow) 0%, var(--pm-border) 50%, transparent 75%)",
         }}
         aria-hidden="true"
       />
@@ -63,7 +63,7 @@ const PyramidChart: React.FC<PyramidChartProps> = ({
 
           {/* Subtle Outer Drop Shadow */}
           <filter id="tier-shadow" x="-20%" y="-20%" width="140%" height="140%">
-            <feDropShadow dx="0" dy="8" stdDeviation="10" floodColor="#000000" floodOpacity="0.8" />
+            <feDropShadow dx="0" dy="8" stdDeviation="10" floodColor="var(--pm-bg)" floodOpacity="0.8" />
           </filter>
 
           {/* Gradients for Glass Bodies */}
@@ -132,9 +132,7 @@ const PyramidChart: React.FC<PyramidChartProps> = ({
           />
         </g>
 
-        {/* ======================================================== */}
-        {/* TIER 1: Beyond Borders (Top Triangle)                    */}
-        {/* ======================================================== */}
+        {/* Tier 1: Beyond Borders (Top Triangle) */}
         <g
           className="cursor-pointer transition-all duration-300 origin-center"
           onMouseEnter={() => onHover(1)}
@@ -146,7 +144,7 @@ const PyramidChart: React.FC<PyramidChartProps> = ({
           {/* Base 3D Bevel Lip */}
           <path
             d="M 198 144 L 322 144 L 314 150 L 206 150 Z"
-            fill="rgba(168, 85, 247, 0.25)"
+            fill="var(--pm-border)"
             stroke="var(--pm-border)"
             strokeWidth="0.5"
           />
@@ -212,9 +210,7 @@ const PyramidChart: React.FC<PyramidChartProps> = ({
           </text>
         </g>
 
-        {/* ======================================================== */}
-        {/* TIER 2: Beyond Gatekeepers (Middle Trapezoid)            */}
-        {/* ======================================================== */}
+        {/* Tier 2: Beyond Gatekeepers (Middle Trapezoid) */}
         <g
           className="cursor-pointer transition-all duration-300 origin-center"
           onMouseEnter={() => onHover(2)}
@@ -226,7 +222,7 @@ const PyramidChart: React.FC<PyramidChartProps> = ({
           {/* Base 3D Bevel Lip */}
           <path
             d="M 128 268 L 392 268 L 382 274 L 138 274 Z"
-            fill="rgba(168, 85, 247, 0.2)"
+            fill="var(--pm-border)"
             stroke="var(--pm-border)"
             strokeWidth="0.5"
           />
@@ -295,9 +291,7 @@ const PyramidChart: React.FC<PyramidChartProps> = ({
           </text>
         </g>
 
-        {/* ======================================================== */}
-        {/* TIER 3: Beyond Syllabus (Bottom Wide Trapezoid)           */}
-        {/* ======================================================== */}
+        {/* Tier 3: Beyond Syllabus (Bottom Wide Trapezoid) */}
         <g
           className="cursor-pointer transition-all duration-300 origin-center"
           onMouseEnter={() => onHover(3)}
@@ -309,7 +303,7 @@ const PyramidChart: React.FC<PyramidChartProps> = ({
           {/* Base 3D Bevel Lip */}
           <path
             d="M 48 412 L 472 412 L 460 418 L 60 418 Z"
-            fill="rgba(168, 85, 247, 0.2)"
+            fill="var(--pm-border)"
             stroke="var(--pm-border)"
             strokeWidth="0.5"
           />
@@ -341,7 +335,7 @@ const PyramidChart: React.FC<PyramidChartProps> = ({
             y1="282"
             x2="390"
             y2="282"
-            stroke="#ffffff"
+            stroke="var(--pm-text-primary)"
             strokeWidth="1"
             opacity={hoveredLevel === 3 ? "0.9" : "0.7"}
             className="pointer-events-none"

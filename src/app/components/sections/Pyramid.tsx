@@ -59,9 +59,7 @@ const Pyramid: React.FC = () => {
       <div className="relative max-w-[1440px] xl:max-w-[1500px] mx-auto z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 xl:gap-14 items-center">
           
-          {/* ======================================================== */}
-          {/* LEFT COLUMN: Belief Headline & Narrative Copy           */}
-          {/* ======================================================== */}
+          {/* Belief Headline & Narrative Copy */}
           <div className="lg:col-span-4 flex flex-col justify-center lg:pr-2">
             {/* Tagline Badge */}
             <div className="flex items-center gap-3.5 mb-6">
@@ -82,7 +80,7 @@ const Pyramid: React.FC = () => {
               Growth<br />
               has no<br />
               <span
-                className="bg-gradient-to-r from-purple-400 via-fuchsia-400 to-purple-300 bg-clip-text text-transparent"
+                className="bg-gradient-to-r from-pm-light via-pm-accent to-pm-primary bg-clip-text text-transparent"
                 style={{
                   filter: "drop-shadow(0 0 20px var(--pm-glow))",
                 }}
@@ -99,9 +97,7 @@ const Pyramid: React.FC = () => {
             </p>
           </div>
 
-          {/* ======================================================== */}
-          {/* CENTER COLUMN: Interactive Glowing 3D Glass Pyramid     */}
-          {/* ======================================================== */}
+          {/* Interactive Glowing 3D Glass Pyramid */}
           <div className="lg:col-span-4 flex items-center justify-center py-2 lg:py-0">
             <PyramidChart
               data={PILLARS}
@@ -111,9 +107,7 @@ const Pyramid: React.FC = () => {
             />
           </div>
 
-          {/* ======================================================== */}
-          {/* RIGHT COLUMN: Vertical Timeline & Connected Pillar Cards */}
-          {/* ======================================================== */}
+          {/* Vertical Timeline & Connected Pillar Cards */}
           <div className="lg:col-span-4 relative flex flex-col justify-between lg:h-[450px] py-1 space-y-8 lg:space-y-0 lg:pl-2">
             {/* Continuous Vertical Timeline Track between Node 1 and Node 3 */}
             <div
@@ -139,7 +133,7 @@ const Pyramid: React.FC = () => {
                   {/* Glowing Node on Timeline */}
                   <div className="relative z-10 mt-3.5 w-[26px] flex items-center justify-center shrink-0">
                     <div
-                      className={`w-3 h-3 rounded-full transition-all duration-300 ring-4 ring-black ${
+                      className={`w-3 h-3 rounded-full transition-all duration-300 ring-4 ring-pm-bg ${
                         isHovered
                           ? "bg-pm-light scale-125 shadow-[0_0_14px_var(--pm-accent)]"
                           : "bg-pm-timeline-node shadow-[0_0_8px_var(--pm-glow)]"
@@ -152,7 +146,7 @@ const Pyramid: React.FC = () => {
                     className={`w-12 h-12 sm:w-13 sm:h-13 rounded-2xl flex items-center justify-center shrink-0 transition-all duration-300 backdrop-blur-md ${
                       isHovered
                         ? "bg-pm-primary/20 border-pm-accent shadow-[0_0_20px_var(--pm-glow)] scale-105"
-                        : "bg-pm-icon-box-bg border border-pm-icon-box-border shadow-[0_0_12px_rgba(0,0,0,0.5)]"
+                        : "bg-pm-icon-box-bg border border-pm-icon-box-border shadow-md"
                     }`}
                   >
                     <Icon

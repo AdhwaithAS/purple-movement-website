@@ -48,14 +48,14 @@ export default function StepOne({ selectedOption, onCardClick }: StepOneProps) {
             key={option.id}
             type="button"
             onClick={() => onCardClick(option.id)}
-            className={`w-full sm:w-72 p-6 sm:p-8 rounded-2xl border text-left flex flex-col justify-between gap-5 transition-all duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 group ${
+            className={`w-full sm:w-72 p-6 sm:p-8 rounded-2xl border text-left flex flex-col justify-between gap-5 transition-all duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pm-accent group ${
               selectedOption === option.id
-                ? "border-purple-500 bg-purple-950/40 shadow-xl shadow-purple-900/30 scale-[1.02]"
-                : "border-white/10 bg-slate-900/80 hover:border-purple-500/50 hover:bg-slate-900 hover:-translate-y-1 shadow-lg"
+                ? "border-pm-primary bg-pm-deep/40 shadow-[var(--pm-glow)] scale-[1.02]"
+                : "border-pm-card-border bg-pm-card hover:border-pm-border-hover hover:bg-pm-card-hover hover:-translate-y-1 shadow-lg"
             }`}
           >
             <div className="flex items-center justify-between w-full">
-              <div className="w-12 h-12 rounded-xl bg-purple-600/20 border border-purple-500/30 flex items-center justify-center text-purple-300 group-hover:scale-110 transition-transform">
+              <div className="w-12 h-12 rounded-xl bg-pm-primary/20 border border-pm-primary/30 flex items-center justify-center text-pm-accent group-hover:scale-110 transition-transform">
                 <Image
                   src={option.svgPath}
                   alt=""
@@ -65,17 +65,17 @@ export default function StepOne({ selectedOption, onCardClick }: StepOneProps) {
                 />
               </div>
               <span className={`text-xs uppercase font-bold tracking-wider px-2.5 py-1 rounded-full ${
-                selectedOption === option.id ? "bg-purple-600 text-white" : "bg-white/5 text-purple-200/70"
+                selectedOption === option.id ? "bg-pm-primary text-pm-text-primary" : "bg-pm-card border border-pm-card-border text-pm-text-secondary"
               }`}>
                 {option.id}
               </span>
             </div>
 
             <div>
-              <h2 className="text-xl sm:text-2xl font-bold font-montserrat text-white mb-2 group-hover:text-purple-300 transition-colors">
+              <h2 className="text-xl sm:text-2xl font-bold font-montserrat text-pm-text-primary mb-2 group-hover:text-pm-accent transition-colors">
                 {option.label}
               </h2>
-              <p className="text-zinc-300 text-sm font-normal font-poppins leading-relaxed">
+              <p className="text-pm-text-secondary text-sm font-normal font-poppins leading-relaxed">
                 {option.text}
               </p>
             </div>

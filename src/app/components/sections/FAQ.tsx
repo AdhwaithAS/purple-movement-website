@@ -41,7 +41,7 @@ const FAQs: FAQItem[] = [
     answer: (
       <>
         Click{" "}
-        <Link href="/join" className="text-purple-400 font-semibold hover:text-purple-300 underline underline-offset-4 transition-colors">
+        <Link href="/join" className="text-pm-accent font-semibold hover:text-pm-light underline underline-offset-4 transition-colors">
           Join Us
         </Link>
         —that&apos;s all it takes to get started.
@@ -58,15 +58,15 @@ export const FAQ = () => {
   };
 
   return (
-    <section id="faq" aria-labelledby="faq-heading" className="w-full px-4 sm:px-6 md:px-8 py-16 sm:py-24 bg-black flex flex-col justify-center items-center gap-6 sm:gap-10 scroll-mt-20">
+    <section id="faq" aria-labelledby="faq-heading" className="w-full px-4 sm:px-6 md:px-8 py-16 sm:py-24 bg-pm-bg flex flex-col justify-center items-center gap-6 sm:gap-10 scroll-mt-20">
       
       {/* Title */}
-      <h2 id="faq-heading" className="text-center text-white text-3xl sm:text-4xl md:text-5xl font-bold font-montserrat">
+      <h2 id="faq-heading" className="text-center text-pm-text-primary text-3xl sm:text-4xl md:text-5xl font-bold font-montserrat">
         FAQ
       </h2>
 
       {/* Subtitle */}
-      <p className="w-full max-w-2xl text-center text-zinc-300 text-sm sm:text-base md:text-lg font-normal font-poppins px-2 sm:px-0">
+      <p className="w-full max-w-2xl text-center text-pm-text-secondary text-sm sm:text-base md:text-lg font-normal font-poppins px-2 sm:px-0">
         Got questions? We&apos;ve got answers. Here are some of the most common things people ask 
         about the Purple Movement.
       </p>
@@ -80,8 +80,8 @@ export const FAQ = () => {
               key={index}
               className={`w-full rounded-2xl overflow-hidden border transition-colors duration-300 ${
                 isOpen 
-                  ? "bg-zinc-900/80 border-purple-500/40 shadow-lg shadow-purple-950/20" 
-                  : "bg-zinc-900/40 hover:bg-zinc-900/60 border-white/10 hover:border-purple-500/20"
+                  ? "bg-pm-card hover:bg-pm-card-hover border-pm-border-hover shadow-[var(--pm-glow)]" 
+                  : "bg-pm-card/60 hover:bg-pm-card-hover border-pm-card-border hover:border-pm-border"
               }`}
             >
               {/* Question button */}
@@ -91,12 +91,12 @@ export const FAQ = () => {
                 aria-expanded={isOpen}
                 aria-controls={`faq-answer-${index}`}
                 onClick={() => toggleFAQ(index)}
-                className="w-full flex items-center justify-between px-5 sm:px-7 py-4 sm:py-5 text-left text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 rounded-2xl"
+                className="w-full flex items-center justify-between px-5 sm:px-7 py-4 sm:py-5 text-left text-pm-text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pm-accent rounded-2xl"
               >
                 <span className="text-sm sm:text-base md:text-lg font-semibold font-montserrat pr-4">
                   {faq.question}
                 </span>
-                <span className="shrink-0 p-1.5 rounded-full bg-white/5 border border-white/10 text-purple-300">
+                <span className="shrink-0 p-1.5 rounded-full bg-pm-card border border-pm-card-border text-pm-accent">
                   {isOpen ? (
                     <Minus className="w-4 h-4 sm:w-5 sm:h-5" />
                   ) : (
@@ -118,8 +118,8 @@ export const FAQ = () => {
                     transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
                     className="overflow-hidden"
                   >
-                    <div className="border-t border-white/10 mx-5 sm:mx-7" />
-                    <div className="px-5 sm:px-7 pb-5 pt-4 text-zinc-300 text-sm sm:text-base font-poppins leading-relaxed">
+                    <div className="border-t border-pm-card-border mx-5 sm:mx-7" />
+                    <div className="px-5 sm:px-7 pb-5 pt-4 text-pm-text-secondary text-sm sm:text-base font-poppins leading-relaxed">
                       {faq.answer}
                     </div>
                   </motion.div>

@@ -10,16 +10,13 @@ import { Contact } from "./components/sections/Contact";
 import { CallToAction } from "./components/sections/CallToAction";
 import { Whypurple } from "./components/sections/Whypurple";
 import Hero2 from "./components/sections/Hero2";
-// import {Hero} from "./components/sections/Hero";
-
 
 export default function HomePage() {
   return (
-    <div className=" w-full min-h-screen bg-black text-white">
+    <div className="w-full min-h-screen bg-pm-bg text-pm-text-primary">
       <Navbar />
       <main className="w-full">
-        {/* <Hero /> */}
-        <Hero2/>
+        <Hero2 />
         <VisionMission />
         <Whypurple />
         <Pyramid />

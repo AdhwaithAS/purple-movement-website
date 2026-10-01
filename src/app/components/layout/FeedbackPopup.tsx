@@ -99,11 +99,11 @@ export default function FeedbackPopup({ isOpen, onClose }: FeedbackPopupProps) {
       aria-modal="true"
       aria-labelledby="feedback-dialog-title"
     >
-      <div className="w-full max-w-lg bg-zinc-900 border border-purple-500/30 rounded-3xl shadow-2xl p-6 sm:p-8 relative flex flex-col items-center gap-6 animate-scale-up">
+      <div className="w-full max-w-lg bg-pm-bg-dark border border-pm-border-hover rounded-3xl shadow-2xl p-6 sm:p-8 relative flex flex-col items-center gap-6 animate-scale-up">
         {/* Close button */}
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 p-2 text-zinc-400 hover:text-white hover:bg-white/10 rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400"
+          className="absolute top-5 right-5 p-2 text-pm-text-muted hover:text-pm-text-primary hover:bg-pm-card rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pm-accent"
           aria-label="Close feedback modal"
         >
           <X className="w-5 h-5" />
@@ -111,10 +111,10 @@ export default function FeedbackPopup({ isOpen, onClose }: FeedbackPopupProps) {
 
         {/* Main heading */}
         <div className="text-center pt-2">
-          <h2 id="feedback-dialog-title" className="text-white text-2xl sm:text-3xl font-bold font-montserrat tracking-tight">
+          <h2 id="feedback-dialog-title" className="text-pm-text-primary text-2xl sm:text-3xl font-bold font-montserrat tracking-tight">
             How helpful was this?
           </h2>
-          <p className="text-zinc-400 text-sm font-poppins mt-1">
+          <p className="text-pm-text-muted text-sm font-poppins mt-1">
             Let us know what you think or how we can improve.
           </p>
         </div>
@@ -130,10 +130,10 @@ export default function FeedbackPopup({ isOpen, onClose }: FeedbackPopupProps) {
                 onClick={() => handleReactionClick(reaction.id)}
                 aria-pressed={isSelected}
                 aria-label={reaction.alt}
-                className={`p-2 rounded-2xl transition-all duration-200 hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 ${
+                className={`p-2 rounded-2xl transition-all duration-200 hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pm-accent ${
                   isSelected 
-                    ? 'bg-purple-600/30 border border-purple-500 scale-110 opacity-100' 
-                    : 'opacity-40 hover:opacity-100 hover:bg-white/5 border border-transparent'
+                    ? 'bg-pm-primary/30 border border-pm-accent scale-110 opacity-100' 
+                    : 'opacity-40 hover:opacity-100 hover:bg-pm-card border border-transparent'
                 }`}
               >
                 <Image
@@ -156,12 +156,12 @@ export default function FeedbackPopup({ isOpen, onClose }: FeedbackPopupProps) {
             value={feedback}
             onChange={(e) => setFeedback(e.target.value)}
             placeholder="Share your thoughts or suggestions..."
-            className="w-full h-32 px-4 py-3 bg-zinc-950/80 text-white text-sm sm:text-base font-poppins resize-none rounded-xl border border-zinc-700/80 placeholder:text-zinc-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:border-transparent transition-all"
+            className="w-full h-32 px-4 py-3 bg-pm-card text-pm-text-primary text-sm sm:text-base font-poppins resize-none rounded-xl border border-pm-card-border placeholder:text-pm-text-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pm-accent focus-visible:border-transparent transition-all"
           />
         </div>
 
         {statusMessage && (
-          <p className={`text-sm font-poppins ${statusMessage.includes('Thank') ? 'text-emerald-400' : 'text-red-400'}`}>
+          <p className={`text-sm font-poppins ${statusMessage.includes('Thank') ? 'text-pm-success' : 'text-pm-error'}`}>
             {statusMessage}
           </p>
         )}
@@ -170,15 +170,15 @@ export default function FeedbackPopup({ isOpen, onClose }: FeedbackPopupProps) {
         <button
           onClick={handleSubmit}
           disabled={(!feedback.trim() && !selectedReaction) || isSubmitting}
-          className={`w-full sm:w-auto px-10 py-3 rounded-xl font-semibold font-poppins text-base transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 ${
+          className={`w-full sm:w-auto px-10 py-3 rounded-xl font-semibold font-poppins text-base transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pm-accent ${
             (feedback.trim() || selectedReaction) && !isSubmitting
-              ? 'bg-purple-600 hover:bg-purple-500 text-white shadow-lg shadow-purple-600/25 active:scale-95'
-              : 'bg-zinc-800 text-zinc-500 border border-white/5 cursor-not-allowed'
+              ? 'bg-pm-primary hover:bg-pm-primary-hover text-pm-text-primary shadow-[var(--pm-glow)] hover:shadow-[var(--pm-glow-strong)] active:scale-95'
+              : 'bg-pm-card/40 text-pm-text-muted border border-pm-card-border cursor-not-allowed'
           }`}
         >
           {isSubmitting ? (
             <div className="flex items-center justify-center gap-2">
-              <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+              <div className="w-4 h-4 border-2 border-pm-text-primary/30 border-t-pm-text-primary rounded-full animate-spin" />
               <span>Submitting...</span>
             </div>
           ) : (

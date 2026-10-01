@@ -33,9 +33,7 @@ export const VisionMission = () => {
             aria-hidden="true"
           />
 
-          {/* ======================================================== */}
-          {/* LEFT: OUR GOAL (Vision)                                  */}
-          {/* ======================================================== */}
+          {/* Vision: Our Goal */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -65,7 +63,7 @@ export const VisionMission = () => {
               A more inclusive<br />
               and{" "}
               <span
-                className="bg-gradient-to-r from-purple-400 via-fuchsia-400 to-purple-300 bg-clip-text text-transparent"
+                className="bg-gradient-to-r from-pm-light via-pm-accent to-pm-primary bg-clip-text text-transparent"
                 style={{ filter: "drop-shadow(0 0 20px var(--pm-glow))" }}
               >
                 opportunity-rich
@@ -82,11 +80,9 @@ export const VisionMission = () => {
           </motion.div>
 
           {/* Mobile Divider */}
-          <div className="block md:hidden w-full h-[1px] bg-gradient-to-r from-transparent via-purple-500/25 to-transparent my-2" />
+          <div className="block md:hidden w-full h-[1px] bg-gradient-to-r from-transparent via-pm-border-hover to-transparent my-2" />
 
-          {/* ======================================================== */}
-          {/* RIGHT: OUR PURPOSE (Mission)                             */}
-          {/* ======================================================== */}
+          {/* Mission: Our Purpose */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -116,7 +112,7 @@ export const VisionMission = () => {
               People powering<br />
               a{" "}
               <span
-                className="bg-gradient-to-r from-purple-400 via-fuchsia-400 to-purple-300 bg-clip-text text-transparent"
+                className="bg-gradient-to-r from-pm-light via-pm-accent to-pm-primary bg-clip-text text-transparent"
                 style={{ filter: "drop-shadow(0 0 20px var(--pm-glow))" }}
               >
                 brighter future.

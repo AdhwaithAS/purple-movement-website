@@ -14,18 +14,18 @@ const RedOrb: React.FC = () => (
     >
       <defs>
         <radialGradient id="red-sphere-grad" cx="40%" cy="38%" r="62%">
-          <stop offset="0%" stopColor="#ffffff" stopOpacity="0.95" />
+          <stop offset="0%" stopColor="var(--pm-text-primary)" stopOpacity="0.95" />
           <stop offset="14%" stopColor="var(--pm-orb-red-highlight)" />
           <stop offset="42%" stopColor="var(--pm-orb-red-base)" />
           <stop offset="78%" stopColor="var(--pm-orb-red-dark)" />
-          <stop offset="100%" stopColor="#1f000b" />
+          <stop offset="100%" stopColor="var(--pm-orb-red-shadow)" />
         </radialGradient>
       </defs>
       {/* 3D Sphere Body */}
       <circle cx="30" cy="30" r="21" fill="url(#red-sphere-grad)" />
       {/* Primary Specular Glint */}
-      <circle cx="25" cy="23" r="3.2" fill="#ffffff" opacity="0.92" />
-      <circle cx="24.5" cy="22.5" r="1.3" fill="#ffffff" opacity="1" />
+      <circle cx="25" cy="23" r="3.2" fill="var(--pm-text-primary)" opacity="0.92" />
+      <circle cx="24.5" cy="22.5" r="1.3" fill="var(--pm-text-primary)" opacity="1" />
     </svg>
   </div>
 );
@@ -40,18 +40,18 @@ const BlueOrb: React.FC = () => (
     >
       <defs>
         <radialGradient id="blue-sphere-grad" cx="40%" cy="38%" r="62%">
-          <stop offset="0%" stopColor="#ffffff" stopOpacity="0.95" />
+          <stop offset="0%" stopColor="var(--pm-text-primary)" stopOpacity="0.95" />
           <stop offset="14%" stopColor="var(--pm-orb-blue-highlight)" />
           <stop offset="42%" stopColor="var(--pm-orb-blue-base)" />
           <stop offset="78%" stopColor="var(--pm-orb-blue-dark)" />
-          <stop offset="100%" stopColor="#0c0724" />
+          <stop offset="100%" stopColor="var(--pm-orb-blue-shadow)" />
         </radialGradient>
       </defs>
       {/* 3D Sphere Body */}
       <circle cx="30" cy="30" r="21" fill="url(#blue-sphere-grad)" />
       {/* Primary Specular Glint */}
-      <circle cx="25" cy="23" r="3.2" fill="#ffffff" opacity="0.92" />
-      <circle cx="24.5" cy="22.5" r="1.3" fill="#ffffff" opacity="1" />
+      <circle cx="25" cy="23" r="3.2" fill="var(--pm-text-primary)" opacity="0.92" />
+      <circle cx="24.5" cy="22.5" r="1.3" fill="var(--pm-text-primary)" opacity="1" />
     </svg>
   </div>
 );
@@ -76,15 +76,12 @@ export const Whypurple = () => {
 
       <div className="relative w-full max-w-5xl mx-auto z-10">
         
-        {/* ======================================================== */}
-        {/* HEADER: OUR STORY & WHY PURPLE?                          */}
-        {/* ======================================================== */}
+        {/* Story Section Header */}
         <div className="flex flex-col items-center text-center mb-12 sm:mb-16">
-          {/* Display Heading */}
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-pm-text-primary font-montserrat mb-4">
             Why{" "}
             <span
-              className="bg-gradient-to-r from-purple-400 via-fuchsia-400 to-purple-300 bg-clip-text text-transparent"
+              className="bg-gradient-to-r from-pm-light via-pm-accent to-pm-primary bg-clip-text text-transparent"
               style={{ filter: "drop-shadow(0 0 24px var(--pm-glow-strong))" }}
             >
               Purple?
@@ -97,13 +94,11 @@ export const Whypurple = () => {
           </p>
         </div>
 
-        {/* ======================================================== */}
-        {/* RED & BLUE 3D ORB CARDS                                  */}
-        {/* ======================================================== */}
+        {/* Red & Blue Orb Concept Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
           
           {/* Red Card */}
-          <div className="flex items-center gap-5 sm:gap-6 p-6 sm:p-7 rounded-3xl bg-pm-story-card-bg border border-pm-story-card-border hover:border-pm-story-card-hover backdrop-blur-md transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.4)] group">
+          <div className="flex items-center gap-5 sm:gap-6 p-6 sm:p-7 rounded-3xl bg-pm-story-card-bg border border-pm-story-card-border hover:border-pm-story-card-hover backdrop-blur-md transition-all duration-300 shadow-2xl group">
             <RedOrb />
             <div>
               <h3 className="text-xl sm:text-2xl font-bold font-montserrat text-pm-text-primary mb-1 tracking-tight">
@@ -116,7 +111,7 @@ export const Whypurple = () => {
           </div>
 
           {/* Blue Card */}
-          <div className="flex items-center gap-5 sm:gap-6 p-6 sm:p-7 rounded-3xl bg-pm-story-card-bg border border-pm-story-card-border hover:border-pm-story-card-hover backdrop-blur-md transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.4)] group">
+          <div className="flex items-center gap-5 sm:gap-6 p-6 sm:p-7 rounded-3xl bg-pm-story-card-bg border border-pm-story-card-border hover:border-pm-story-card-hover backdrop-blur-md transition-all duration-300 shadow-2xl group">
             <BlueOrb />
             <div>
               <h3 className="text-xl sm:text-2xl font-bold font-montserrat text-pm-text-primary mb-1 tracking-tight">
@@ -130,9 +125,7 @@ export const Whypurple = () => {
 
         </div>
 
-        {/* ======================================================== */}
-        {/* EXPANDABLE NARRATIVE DETAILS                             */}
-        {/* ======================================================== */}
+        {/* Expandable Story Details */}
         <AnimatePresence>
           {isExpanded && (
             <motion.div
@@ -183,15 +176,13 @@ export const Whypurple = () => {
           )}
         </AnimatePresence>
 
-        {/* ======================================================== */}
-        {/* READ MORE / READ LESS PILL BUTTON                        */}
-        {/* ======================================================== */}
+        {/* Expand / Collapse Action */}
         <div className="mt-12 flex justify-center">
           <button
             onClick={() => setIsExpanded(!isExpanded)}
             aria-expanded={isExpanded}
             aria-controls="why-purple-more"
-            className="group inline-flex items-center gap-2.5 px-6 py-2.5 rounded-full border border-pm-primary/40 bg-pm-card hover:bg-pm-card-hover hover:border-pm-accent text-xs font-semibold tracking-wider text-pm-text-primary uppercase transition-all duration-300 shadow-[0_0_14px_rgba(168,85,247,0.15)] hover:shadow-[0_0_22px_var(--pm-glow)] cursor-pointer backdrop-blur-md"
+            className="group inline-flex items-center gap-2.5 px-6 py-2.5 rounded-full border border-pm-primary/40 bg-pm-card hover:bg-pm-card-hover hover:border-pm-accent text-xs font-semibold tracking-wider text-pm-text-primary uppercase transition-all duration-300 shadow-[0_0_14px_var(--pm-glow)] hover:shadow-[0_0_22px_var(--pm-glow)] cursor-pointer backdrop-blur-md"
           >
             <span>{isExpanded ? "READ LESS" : "READ MORE"}</span>
             {isExpanded ? (
