@@ -18,7 +18,7 @@ export function Hero2() {
           fill
           priority
           quality={95}
-          className="object-cover object-right lg:object-center"
+          className="hidden sm:block object-cover object-right lg:object-center"
           sizes="100vw"
         />
 
@@ -29,7 +29,7 @@ export function Hero2() {
             loop
             muted
             playsInline
-            className="absolute inset-[-5%] w-[110%] h-[120%] object-cover mix-blend-screen opacity-50 pointer-events-none rotate-[-13deg]"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full min-w-full min-h-full object-cover object-[center_75%] sm:object-center mix-blend-screen pointer-events-none opacity-90 sm:opacity-60 md:opacity-65 scale-110 sm:scale-125 md:scale-[1.4] lg:scale-[1.45] rotate-0 md:rotate-[-20deg] [mask-image:radial-gradient(ellipse_at_center,black_75%,transparent_100%)]"
           >
             <source src="/videos/hero-bg.mp4" type="video/mp4" />
           </video>

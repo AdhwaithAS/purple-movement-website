@@ -10,6 +10,8 @@ import { Contact } from "./components/sections/Contact";
 import { CallToAction } from "./components/sections/CallToAction";
 import { Whypurple } from "./components/sections/Whypurple";
 import Hero2 from "./components/sections/Hero2";
+// import {Hero} from "./components/sections/Hero";
+
 
 export default function HomePage() {
   return (

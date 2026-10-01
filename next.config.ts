@@ -9,9 +9,12 @@ const nextConfig: NextConfig = {
         hostname: "**",
       },
     ],
+    qualities: [75, 95],
     // Enable image optimization
     unoptimized: false,
   },
+// next.config.js
+  allowedDevOrigins: ['192.168.29.6'],
 
   // Enable compression
   compress: true,
