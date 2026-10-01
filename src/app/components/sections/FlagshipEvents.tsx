@@ -345,7 +345,7 @@ export default function FlagshipEvents() {
     <section
       ref={sectionRef}
       id="flagship-events"
-      className="relative w-full py-20 lg:py-28 overflow-hidden bg-pm-bg-dark"
+      className="relative w-full py-20 lg:py-28 overflow-hidden bg-pm-bg-dark scroll-mt-20"
       aria-labelledby="flagship-events-heading"
     >
       {/* Background ambient lighting */}

@@ -32,11 +32,20 @@ function getFontSize(font: string): number {
   return match ? parseInt(match[1], 10) : 30;
 }
 
+function resolveColor(color: string): string {
+  if (typeof window !== 'undefined' && color.startsWith('var(')) {
+    const varName = color.slice(4, -1).trim();
+    const resolved = getComputedStyle(document.documentElement).getPropertyValue(varName).trim();
+    if (resolved) return resolved;
+  }
+  return color;
+}
+
 function createTextTexture(
   gl: GL,
   text: string,
   font: string = 'bold 30px monospace',
-  color: string = 'black'
+  color: string = 'white'
 ): { texture: Texture; width: number; height: number } {
   const canvas = document.createElement('canvas');
   const context = canvas.getContext('2d');
@@ -52,7 +61,7 @@ function createTextTexture(
   canvas.height = textHeight + 20;
 
   context.font = font;
-  context.fillStyle = color;
+  context.fillStyle = resolveColor(color);
   context.textBaseline = 'middle';
   context.textAlign = 'center';
   context.clearRect(0, 0, canvas.width, canvas.height);
@@ -155,6 +164,7 @@ interface MediaProps {
   textColor: string;
   borderRadius?: number;
   font?: string;
+  cardScale?: number;
 }
 
 class Media {
@@ -173,6 +183,7 @@ class Media {
   textColor: string;
   borderRadius: number;
   font?: string;
+  cardScale: number;
   program!: Program;
   plane!: Mesh;
   title!: Title;
@@ -199,7 +210,8 @@ class Media {
     bend,
     textColor,
     borderRadius = 0,
-    font
+    font,
+    cardScale = 1
   }: MediaProps) {
     this.geometry = geometry;
     this.gl = gl;
@@ -215,6 +227,7 @@ class Media {
     this.textColor = textColor;
     this.borderRadius = borderRadius;
     this.font = font;
+    this.cardScale = cardScale;
     this.createShader();
     this.createMesh();
     this.createTitle();
@@ -357,10 +370,12 @@ class Media {
       }
     }
     this.scale = this.screen.height / 1500;
-    this.plane.scale.y = (this.viewport.height * (900 * this.scale)) / this.screen.height;
-    this.plane.scale.x = (this.viewport.width * (700 * this.scale)) / this.screen.width;
+    const baseHeight = 1350 * (this.cardScale ?? 1);
+    const baseWidth = 1050 * (this.cardScale ?? 1);
+    this.plane.scale.y = (this.viewport.height * (baseHeight * this.scale)) / this.screen.height;
+    this.plane.scale.x = (this.viewport.width * (baseWidth * this.scale)) / this.screen.width;
     this.plane.program.uniforms.uPlaneSizes.value = [this.plane.scale.x, this.plane.scale.y];
-    this.padding = 2;
+    this.padding = 2.5 * (this.cardScale ?? 1);
     this.width = this.plane.scale.x + this.padding;
     this.widthTotal = this.width * this.length;
     this.x = this.width * this.index;
@@ -375,6 +390,7 @@ interface AppConfig {
   font?: string;
   scrollSpeed?: number;
   scrollEase?: number;
+  cardScale?: number;
 }
 
 class App {
@@ -398,6 +414,7 @@ class App {
   screen!: { width: number; height: number };
   viewport!: { width: number; height: number };
   raf: number = 0;
+  cardScale: number;
 
   boundOnResize!: () => void;
   boundOnWheel!: (e: Event) => void;
@@ -413,11 +430,12 @@ class App {
     {
       items,
       bend = 1,
-      textColor = '#ffffff',
+      textColor = 'var(--pm-text-primary)',
       borderRadius = 0,
       font = 'bold 30px Figtree',
       scrollSpeed = 2,
-      scrollEase = 0.05
+      scrollEase = 0.05,
+      cardScale = 1
     }: AppConfig
   ) {
     document.documentElement.classList.remove('no-js');
@@ -425,12 +443,13 @@ class App {
     this.scrollSpeed = scrollSpeed;
     this.scroll = { ease: scrollEase, current: 0, target: 0, last: 0 };
     this.onCheckDebounce = debounce(this.onCheck.bind(this), 200);
+    this.cardScale = cardScale;
     this.createRenderer();
     this.createCamera();
     this.createScene();
     this.onResize();
     this.createGeometry();
-    this.createMedias(items, bend, textColor, borderRadius, font);
+    this.createMedias(items, bend, textColor, borderRadius, font, cardScale);
     this.update();
     this.addEventListeners();
   }
@@ -468,7 +487,8 @@ class App {
     bend: number = 1,
     textColor: string,
     borderRadius: number,
-    font: string
+    font: string,
+    cardScale: number = 1
   ) {
     const defaultItems = [
       {
@@ -537,7 +557,8 @@ class App {
         bend,
         textColor,
         borderRadius,
-        font
+        font,
+        cardScale
       });
     });
   }
@@ -659,6 +680,8 @@ interface CircularGalleryProps {
   font?: string;
   scrollSpeed?: number;
   scrollEase?: number;
+  cardScale?: number;
+  className?: string;
 }
 
 export interface CircularGalleryHandle {
@@ -669,11 +692,13 @@ export interface CircularGalleryHandle {
 const CircularGallery = forwardRef<CircularGalleryHandle, CircularGalleryProps>(({
   items,
   bend = 3,
-  textColor = '#ffffff',
+  textColor = 'var(--pm-text-primary)',
   borderRadius = 0.05,
   font = 'bold 30px poppins',
   scrollSpeed = 2,
-  scrollEase = 0.05
+  scrollEase = 0.05,
+  cardScale = 1,
+  className
 }, ref) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const appRef = useRef<App | null>(null);
@@ -700,16 +725,24 @@ const CircularGallery = forwardRef<CircularGalleryHandle, CircularGalleryProps>(
       borderRadius,
       font,
       scrollSpeed,
-      scrollEase
+      scrollEase,
+      cardScale
     });
     appRef.current = app;
     return () => {
       app.destroy();
       appRef.current = null;
     };
-  }, [items, bend, textColor, borderRadius, font, scrollSpeed, scrollEase]);
+  }, [items, bend, textColor, borderRadius, font, scrollSpeed, scrollEase, cardScale]);
   
-  return <div className="w-full h-full overflow-hidden cursor-grab active:cursor-grabbing" ref={containerRef} />;
+  const defaultClasses = "w-full min-h-[520px] h-[650px] sm:h-[750px] lg:h-[850px] overflow-hidden cursor-grab active:cursor-grabbing";
+
+  return (
+    <div
+      className={className ? `w-full overflow-hidden cursor-grab active:cursor-grabbing ${className}` : defaultClasses}
+      ref={containerRef}
+    />
+  );
 });
 
 CircularGallery.displayName = 'CircularGallery';

@@ -68,7 +68,7 @@ export default function Events() {
 
   return (
     <div
-      className="w-full py-16 bg-black flex flex-col justify-center items-center gap-8 px-4"
+      className="w-full py-16 bg-black flex flex-col justify-center items-center gap-8 px-4 scroll-mt-20"
       id="events"
     >
       {/* Title */}

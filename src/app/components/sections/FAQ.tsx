@@ -58,7 +58,8 @@ export const FAQ = () => {
   };
 
   return (
-    <section aria-labelledby="faq-heading" className="w-full px-4 sm:px-6 md:px-8 py-16 sm:py-24 bg-black flex flex-col justify-center items-center gap-6 sm:gap-10">
+    <section id="faq" aria-labelledby="faq-heading" className="w-full px-4 sm:px-6 md:px-8 py-16 sm:py-24 bg-black flex flex-col justify-center items-center gap-6 sm:gap-10 scroll-mt-20">
+      
       {/* Title */}
       <h2 id="faq-heading" className="text-center text-white text-3xl sm:text-4xl md:text-5xl font-bold font-montserrat">
         FAQ

@@ -10,12 +10,8 @@
     "postbuild": "echo 'Build completed successfully'"
   },
   "dependencies": {
-    "@canvasjs/react-charts": "^1.0.2",
-    "@lottiefiles/dotlottie-react": "^0.19.16",
     "@supabase/supabase-js": "^2.117.2",
-    "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "flowbite-react": "^0.12.17",
     "framer-motion": "^13.5.0",
     "gsap": "^3.15.0",
     "lucide-react": "^1.49.0",

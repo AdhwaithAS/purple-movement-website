@@ -54,7 +54,7 @@ export const Contact = () => {
     }
   };
   return (
-    <section aria-labelledby="contact-heading" className="w-[95%] sm:w-[90%] lg:w-[1070px] mx-auto mt-12 sm:mt-16 md:mt-24 px-6 sm:px-8 lg:px-12 py-8 sm:py-12 md:py-14 bg-gradient-to-b from-zinc-900/90 via-slate-950/95 to-zinc-950 rounded-2xl sm:rounded-3xl border border-white/10 shadow-2xl flex flex-col sm:flex-row items-center justify-between gap-6 sm:gap-8 lg:gap-12 backdrop-blur-sm">
+    <section id="contact" aria-labelledby="contact-heading" className="w-[95%] sm:w-[90%] lg:w-[1070px] mx-auto mt-12 sm:mt-16 md:mt-24 px-6 sm:px-8 lg:px-12 py-8 sm:py-12 md:py-14 bg-gradient-to-b from-zinc-900/90 via-slate-950/95 to-zinc-950 rounded-2xl sm:rounded-3xl border border-white/10 shadow-2xl flex flex-col sm:flex-row items-center justify-between gap-6 sm:gap-8 lg:gap-12 backdrop-blur-sm scroll-mt-20">
       
       {/* Image Section */}
       <div className="relative w-20 h-20 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-56 lg:h-56 flex-shrink-0 hidden sm:block">

@@ -63,7 +63,7 @@ export const Whypurple = () => {
     <section
       id="story"
       aria-label="Why Purple Story Section"
-      className="relative w-full bg-pm-bg text-pm-text-primary py-20 lg:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden"
+      className="relative w-full bg-pm-bg text-pm-text-primary py-20 lg:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden scroll-mt-20"
     >
       {/* Ambient Radial Spotlight */}
       <div

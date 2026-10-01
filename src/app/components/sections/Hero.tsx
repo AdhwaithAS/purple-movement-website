@@ -2,13 +2,12 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import Image from 'next/image'
 
 export function Hero() {
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Background video */}
-      {/* <video
+      <video
         autoPlay
         loop
         muted
@@ -16,10 +15,10 @@ export function Hero() {
         className="absolute inset-0 w-full h-full object-cover"
       >
         <source src="/videos/hero-bg.mp4" type="video/mp4" />
-      </video> */}
+      </video>
 
-      <Image src={"/image.png"}         className="absolute inset-0 w-full h-full object-cover"
-width={100} sizes='fill' height={100} alt='img'/>
+      {/* <Image src={"/image.png"}         className="absolute inset-0 w-full h-full object-cover" */}
+{/* width={100} sizes='fill' height={100} alt='img'/> */}
 
       {/* Dark overlay for better text readability */}
       <div className="absolute inset-0 bg-black/50 z-[1]" />
@@ -39,7 +38,7 @@ width={100} sizes='fill' height={100} alt='img'/>
       />
 
       {/* Content overlay */}
-      <div className="relative z-10 text-center max-w-4xl mx-auto px-4 md:-mt-32 -mt-16">
+      <div className="relative z-10 text-center max-w-4xl mx-auto px-4 md:-mt-32 -mt-6">
         <div className="flex flex-col items-center">
           <div className="w-full flex flex-col justify-start items-center gap-5">
             {/* Eyebrow */}
