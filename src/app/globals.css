@@ -103,6 +103,8 @@
   --color-pm-story-card-hover: var(--pm-story-card-hover);
   --color-pm-orb-red-shadow: var(--pm-orb-red-shadow);
   --color-pm-orb-blue-shadow: var(--pm-orb-blue-shadow);
+  --color-pm-orb-purple-shadow: var(--pm-orb-purple-shadow);
+  --color-pm-orb-purple-glow: var(--pm-orb-purple-glow);
 
   /* Flagship Events — Teal Accent (AI+Compassion) */
   --color-pm-teal: var(--pm-teal);
@@ -231,6 +233,11 @@ body::-webkit-scrollbar-thumb {
   --pm-orb-blue-dark: #1e1b4b;
   --pm-orb-blue-shadow: #0c0724;
   --pm-orb-blue-glow: rgba(99, 102, 241, 0.8);
+  --pm-orb-purple-highlight: #f3e8ff;
+  --pm-orb-purple-base: #a855f7;
+  --pm-orb-purple-dark: #4c1d95;
+  --pm-orb-purple-shadow: #1e0538;
+  --pm-orb-purple-glow: rgba(168, 85, 247, 0.85);
   --pm-story-card-bg: rgba(18, 7, 34, 0.55);
   --pm-story-card-border: rgba(168, 85, 247, 0.22);
   --pm-story-card-hover: rgba(168, 85, 247, 0.45);

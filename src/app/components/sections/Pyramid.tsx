@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Globe, Users, BookOpen } from "lucide-react";
 import PyramidChart, { LevelData } from "./PyramidChart";
 
@@ -40,6 +40,73 @@ const ICON_MAP = {
 
 const Pyramid: React.FC = () => {
   const [hoveredLevel, setHoveredLevel] = useState<number | null>(null);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  // Mobile scroll-spy: activate the hover/highlight effect on the active pillar as user scrolls on mobile/tablet
+  useEffect(() => {
+    let ticking = false;
+
+    const checkActiveCardOnScroll = () => {
+      // Only active on mobile / tablet screens (< 1024px)
+      if (window.innerWidth >= 1024) return;
+
+      const focalPoint = window.innerHeight * 0.48;
+      let closestId: number | null = null;
+      let minDistance = Infinity;
+
+      cardRefs.current.forEach((el, index) => {
+        if (!el) return;
+        const rect = el.getBoundingClientRect();
+
+        // Card is at least partially in the viewport
+        if (rect.bottom > 0 && rect.top < window.innerHeight) {
+          const cardCenter = rect.top + rect.height / 2;
+          const distance = Math.abs(cardCenter - focalPoint);
+
+          if (distance < minDistance) {
+            minDistance = distance;
+            closestId = PILLARS[index].id;
+          }
+        }
+      });
+
+      // Activate if closest card is within active focal zone (within 38% of viewport height)
+      if (closestId !== null && minDistance < window.innerHeight * 0.38) {
+        setHoveredLevel(closestId);
+      } else {
+        setHoveredLevel(null);
+      }
+    };
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          checkActiveCardOnScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setHoveredLevel(null);
+      } else {
+        handleScroll();
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleResize, { passive: true });
+
+    // Initial check
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <section
@@ -118,13 +185,16 @@ const Pyramid: React.FC = () => {
               aria-hidden="true"
             />
 
-            {PILLARS.map((pillar) => {
+            {PILLARS.map((pillar, index) => {
               const Icon = ICON_MAP[pillar.iconType];
               const isHovered = hoveredLevel === pillar.id;
 
               return (
                 <div
                   key={pillar.id}
+                  ref={(el) => {
+                    cardRefs.current[index] = el;
+                  }}
                   className="relative flex items-start gap-4 sm:gap-5 group cursor-pointer transition-all duration-300"
                   onMouseEnter={() => setHoveredLevel(pillar.id)}
                   onMouseLeave={() => setHoveredLevel(null)}
@@ -157,15 +227,40 @@ const Pyramid: React.FC = () => {
                   </div>
 
                   {/* Title & Copy */}
-                  <div className="flex-1 min-w-0 pt-0.5">
-                    <h3
-                      className={`text-lg sm:text-xl font-bold font-montserrat tracking-tight mb-1 transition-colors duration-200 ${
-                        isHovered ? "text-pm-text-primary" : "text-pm-text-primary/90"
+                  <div
+                    className={`flex-1 min-w-0 pt-0.5 origin-left transition-all duration-300 ease-out ${
+                      isHovered
+                        ? "scale-[1.03] translate-x-1.5"
+                        : "scale-100 translate-x-0"
+                    }`}
+                  >
+                    <div className="relative inline-block mb-1.5">
+                      <h3
+                        className={`text-lg sm:text-xl font-bold font-montserrat tracking-tight transition-all duration-300 ${
+                          isHovered
+                            ? "text-pm-text-primary drop-shadow-[0_0_12px_var(--pm-glow-strong)]"
+                            : "text-pm-text-primary/90"
+                        }`}
+                      >
+                        {pillar.title}
+                      </h3>
+                      {/* Animated Glowing Underline */}
+                      <span
+                        className={`block h-[2px] rounded-full origin-left transition-all duration-300 ease-out ${
+                          isHovered
+                            ? "w-full bg-gradient-to-r from-pm-accent via-pm-light to-pm-primary shadow-[0_0_10px_var(--pm-accent)] opacity-100"
+                            : "w-0 bg-transparent opacity-0"
+                        }`}
+                        aria-hidden="true"
+                      />
+                    </div>
+                    <p
+                      className={`text-xs sm:text-sm font-poppins leading-relaxed transition-all duration-300 ${
+                        isHovered
+                          ? "text-pm-text-primary/95 drop-shadow-[0_0_8px_var(--pm-glow)]"
+                          : "text-pm-text-secondary"
                       }`}
                     >
-                      {pillar.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-pm-text-secondary font-poppins leading-relaxed">
                       {pillar.description}
                     </p>
                   </div>

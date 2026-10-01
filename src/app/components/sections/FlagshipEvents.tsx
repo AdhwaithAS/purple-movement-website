@@ -321,7 +321,6 @@ const flagshipEvents: FlagshipEventData[] = [
     imageSrc: "/images/beyondsylabbus.webp",
     imageAlt: "Beyond Syllabus — AI-Powered University Learning Guide by Purple Movement",
   },
-  
 ];
 
 export default function FlagshipEvents() {
@@ -331,6 +330,8 @@ export default function FlagshipEvents() {
   const isInView = useInView(sectionRef, { once: true, margin: "-60px" });
 
   const currentEvent = flagshipEvents[currentIndex];
+  const nextIndex = (currentIndex + 1) % flagshipEvents.length;
+  const nextEvent = flagshipEvents[nextIndex];
 
   const handlePrev = () => {
     setDirection(-1);
@@ -358,7 +359,7 @@ export default function FlagshipEvents() {
         }}
       />
 
-      <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 w-full max-w-6xl xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -391,16 +392,106 @@ export default function FlagshipEvents() {
           </p>
         </motion.div>
 
-        {/* Unified Card Container */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
-          className="relative w-full rounded-3xl border border-pm-card-border bg-pm-card/60 backdrop-blur-xl p-5 sm:p-7 lg:p-8"
-          style={{
-            boxShadow: "0 0 50px var(--pm-glow)",
-          }}
-        >
+        {/* Card Deck Wrapper with Cascading Stacked Cards */}
+        <div className="relative w-full pr-5 sm:pr-10 md:pr-14 lg:pr-22 xl:pr-26">
+          {/* Deepest Stacked Card (Layer 2 - Deck base depth) */}
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 pointer-events-none rounded-3xl border-2 border-pm-border-hover/70 bg-pm-card/65 backdrop-blur-xl transition-all duration-500 ease-out translate-x-5 sm:translate-x-10 md:translate-x-14 lg:translate-x-20 xl:translate-x-24 translate-y-3 sm:translate-y-4.5 lg:translate-y-5.5 scale-[0.97] lg:scale-[0.96] rotate-[1deg] lg:rotate-[2deg] opacity-80 sm:opacity-90"
+            style={{
+              boxShadow: "0 0 45px var(--pm-glow-strong)",
+            }}
+          >
+            {/* Glowing neon accent edge indicator on Layer 2 */}
+            <div className="absolute right-2 sm:right-3.5 top-1/2 -translate-y-1/2 w-1 sm:w-1.5 h-24 sm:h-36 rounded-full bg-gradient-to-b from-pm-accent via-pm-light to-pm-primary opacity-80 shadow-[0_0_14px_var(--pm-glow-strong)]" />
+          </div>
+
+          {/* Next Event Stacked Card (Layer 1 - Interactive Cascading Card) */}
+          <div
+            role="button"
+            tabIndex={0}
+            onClick={handleNext}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                handleNext();
+              }
+            }}
+            aria-label={`View next project: ${nextEvent.title}`}
+            className="group/stack absolute inset-0 z-10 cursor-pointer rounded-3xl border-2 border-pm-border-hover hover:border-pm-accent bg-pm-card/75 hover:bg-pm-card/90 backdrop-blur-2xl transition-all duration-300 ease-out translate-x-3 sm:translate-x-6 md:translate-x-8 lg:translate-x-11 xl:translate-x-13 translate-y-1.5 sm:translate-y-2.5 lg:translate-y-3 scale-[0.985] lg:scale-[0.98] rotate-[0.5deg] lg:rotate-[1deg] hover:translate-x-4.5 sm:hover:translate-x-8 lg:hover:translate-x-14 xl:hover:translate-x-16 overflow-hidden"
+            style={{
+              boxShadow: "0 0 45px var(--pm-glow)",
+            }}
+          >
+            {/* Background image preview of next event */}
+            <div className="absolute inset-0 opacity-25 filter blur-xs pointer-events-none transition-opacity duration-300 group-hover/stack:opacity-40">
+              <Image
+                src={nextEvent.imageSrc}
+                alt=""
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 42vw"
+              />
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 bg-gradient-to-l from-pm-card/90 via-pm-card/70 to-pm-bg-dark/80"
+              />
+            </div>
+
+            {/* Exposed right teaser strip */}
+            <div className="absolute right-0 top-0 bottom-0 w-9 sm:w-14 lg:w-18 xl:w-20 flex flex-col items-center justify-between py-5 sm:py-9 pointer-events-none select-none z-10 border-l border-pm-border-hover/60 bg-pm-card/85 backdrop-blur-md">
+              {/* Next event ID badge */}
+              <div className="flex flex-col items-center gap-2">
+                <span className="px-2 py-0.5 rounded-full border border-pm-accent/50 bg-pm-primary/25 text-[10px] sm:text-xs font-mono font-bold text-pm-light shadow-[0_0_10px_var(--pm-glow)] transition-colors duration-200 group-hover/stack:border-pm-accent group-hover/stack:text-white">
+                  {nextEvent.id}
+                </span>
+                <span className="w-4 h-[1.5px] bg-pm-accent/60" />
+              </div>
+
+              {/* Vertical orientation text */}
+              <div className="flex items-center justify-center my-auto py-3">
+                <span
+                  className="text-[10px] sm:text-xs tracking-[0.25em] uppercase font-bold text-pm-text-secondary transition-colors duration-200 group-hover/stack:text-pm-text-primary whitespace-nowrap drop-shadow-[0_0_8px_var(--pm-glow)]"
+                  style={{
+                    writingMode: "vertical-rl",
+                    textOrientation: "mixed",
+                    transform: "rotate(180deg)",
+                  }}
+                >
+                  NEXT: {nextEvent.title}
+                </span>
+              </div>
+
+              {/* Arrow Indicator */}
+              <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full border border-pm-border-hover bg-pm-primary/20 flex items-center justify-center text-pm-accent transition-all duration-300 group-hover/stack:text-white group-hover/stack:bg-pm-primary group-hover/stack:border-pm-accent group-hover/stack:scale-110 shadow-[0_0_12px_var(--pm-glow)]">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="m9 18 6-6-6-6" />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          {/* Unified Active Card Container */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
+            className="relative z-20 w-full rounded-3xl border border-pm-card-border bg-pm-card/90 sm:bg-pm-card/95 backdrop-blur-2xl p-5 sm:p-7 lg:p-8"
+            style={{
+              boxShadow: "0 0 50px var(--pm-glow)",
+            }}
+          >
           <AnimatePresence mode="wait" custom={direction}>
             <motion.div
               key={currentIndex}
@@ -573,6 +664,7 @@ export default function FlagshipEvents() {
             </motion.div>
           </AnimatePresence>
         </motion.div>
+        </div>
       </div>
     </section>
   );
