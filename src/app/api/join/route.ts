@@ -43,7 +43,7 @@ export async function POST(request: NextRequest) {
       }
 
       // Validate phone format (minimum 10 digits)
-      const cleanPhone = body.phone.replace(/[\s\-\(\)]/g, '')
+      const cleanPhone = body.phone.replace(/[\s\-()]/g, '')
       if (cleanPhone.length < 10) {
         return NextResponse.json(
           { error: 'Phone number must be at least 10 digits' },

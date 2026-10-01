@@ -43,6 +43,70 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
+  /* Purple Movement Brand Tokens */
+  --color-pm-primary: var(--pm-primary);
+  --color-pm-primary-hover: var(--pm-primary-hover);
+  --color-pm-accent: var(--pm-accent);
+  --color-pm-light: var(--pm-light);
+  --color-pm-dark: var(--pm-dark);
+  --color-pm-deep: var(--pm-deep);
+  --color-pm-glow: var(--pm-glow);
+
+  /* Surface & Background Tokens */
+  --color-pm-bg: var(--pm-bg);
+  --color-pm-bg-dark: var(--pm-bg-dark);
+  --color-pm-bg-subtle: var(--pm-bg-subtle);
+  --color-pm-bg-gradient-from: var(--pm-bg-gradient-from);
+  --color-pm-bg-gradient-via: var(--pm-bg-gradient-via);
+  --color-pm-bg-gradient-to: var(--pm-bg-gradient-to);
+  --color-pm-card: var(--pm-card);
+  --color-pm-card-hover: var(--pm-card-hover);
+  --color-pm-card-border: var(--pm-card-border);
+  --color-pm-border: var(--pm-border);
+  --color-pm-border-hover: var(--pm-border-hover);
+
+  /* Timeline & Icon Card Tokens */
+  --color-pm-timeline-track: var(--pm-timeline-track);
+  --color-pm-timeline-node: var(--pm-timeline-node);
+  --color-pm-icon-box-bg: var(--pm-icon-box-bg);
+  --color-pm-icon-box-border: var(--pm-icon-box-border);
+  --color-pm-icon-box-hover: var(--pm-icon-box-hover);
+  --color-pm-pyramid-rim: var(--pm-pyramid-rim);
+  --color-pm-pyramid-rim-bright: var(--pm-pyramid-rim-bright);
+
+  /* Text Tokens */
+  --color-pm-text-primary: var(--pm-text-primary);
+  --color-pm-text-secondary: var(--pm-text-secondary);
+  --color-pm-text-muted: var(--pm-text-muted);
+
+  /* Pyramid Tier Tokens */
+  --color-pm-tier1-start: var(--pm-tier1-start);
+  --color-pm-tier1-end: var(--pm-tier1-end);
+  --color-pm-tier1-text: var(--pm-tier1-text);
+  --color-pm-tier2-start: var(--pm-tier2-start);
+  --color-pm-tier2-end: var(--pm-tier2-end);
+  --color-pm-tier2-text: var(--pm-tier2-text);
+  --color-pm-tier3-start: var(--pm-tier3-start);
+  --color-pm-tier3-end: var(--pm-tier3-end);
+  --color-pm-tier3-text: var(--pm-tier3-text);
+
+  /* UI Feedback & Story Tokens */
+  --color-pm-success: var(--pm-success);
+  --color-pm-error: var(--pm-error);
+  --color-pm-whatsapp: var(--pm-whatsapp);
+  --color-pm-whatsapp-hover: var(--pm-whatsapp-hover);
+  --color-pm-red: var(--pm-red);
+  --color-pm-blue: var(--pm-blue);
+  --color-pm-story-card-bg: var(--pm-story-card-bg);
+  --color-pm-story-card-border: var(--pm-story-card-border);
+  --color-pm-story-card-hover: var(--pm-story-card-hover);
+
+  /* Flagship Events — Teal Accent (AI+Compassion) */
+  --color-pm-teal: var(--pm-teal);
+  --color-pm-teal-light: var(--pm-teal-light);
+  --color-pm-teal-dark: var(--pm-teal-dark);
+  --color-pm-teal-glow: var(--pm-teal-glow);
 }
 
 body {
@@ -62,11 +126,11 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-  background: rgb(33, 1, 46);
+  background: var(--pm-scrollbar-track);
 }
 
 body::-webkit-scrollbar-thumb {
-  background: rgb(92, 0, 128);
+  background: var(--pm-scrollbar-thumb);
   border-radius: 20px;
 }
 
@@ -80,6 +144,93 @@ body::-webkit-scrollbar-thumb {
 }
 
 :root {
+  /* --- Purple Movement Design System Tokens --- */
+  /* Brand Tokens */
+  --pm-primary: #9333ea;         /* Purple 600 */
+  --pm-primary-hover: #a855f7;   /* Purple 500 */
+  --pm-accent: #c084fc;          /* Purple 400 */
+  --pm-light: #e9d5ff;           /* Purple 200 */
+  --pm-dark: #581c87;            /* Purple 900 */
+  --pm-deep: #3b0764;            /* Purple 950 */
+  --pm-glow: rgba(168, 85, 247, 0.25);
+
+  /* Surfaces & Backgrounds */
+  --pm-bg: #000000;
+  --pm-bg-dark: #050511;
+  --pm-bg-subtle: #0f172a;
+  --pm-bg-gradient-from: #020309;
+  --pm-bg-gradient-via: #05041b;
+  --pm-bg-gradient-to: #020309;
+  --pm-card: rgba(24, 24, 27, 0.6);
+  --pm-card-hover: rgba(39, 39, 42, 0.8);
+  --pm-card-border: rgba(255, 255, 255, 0.1);
+  --pm-border: rgba(168, 85, 247, 0.2);
+  --pm-border-hover: rgba(168, 85, 247, 0.5);
+
+  /* Typography */
+  --pm-text-primary: #ffffff;
+  --pm-text-secondary: #d4d4d8;
+  --pm-text-muted: #a1a1aa;
+
+  /* Pyramid Tiers */
+  --pm-tier1-start: #E9D5FF;
+  --pm-tier1-end: #C084FC;
+  --pm-tier1-text: #3B0764;
+  --pm-tier2-start: #A855F7;
+  --pm-tier2-end: #7E22CE;
+  --pm-tier2-text: #FFFFFF;
+  --pm-tier3-start: #8B5CF6;
+  --pm-tier3-end: #581C87;
+  --pm-tier3-text: #FFFFFF;
+
+  /* Pyramid & Timeline Visuals */
+  --pm-glow-strong: rgba(192, 132, 252, 0.55);
+  --pm-pyramid-glass-top: rgba(30, 10, 55, 0.75);
+  --pm-pyramid-glass-bottom: rgba(12, 3, 24, 0.92);
+  --pm-pyramid-rim: #c084fc;
+  --pm-pyramid-rim-bright: #f3e8ff;
+  --pm-pyramid-glow: rgba(168, 85, 247, 0.5);
+  --pm-pyramid-orbit: rgba(168, 85, 247, 0.18);
+  --pm-timeline-track: rgba(168, 85, 247, 0.25);
+  --pm-timeline-node: #c084fc;
+  --pm-timeline-node-active: #f3e8ff;
+  --pm-icon-box-bg: rgba(28, 10, 48, 0.6);
+  --pm-icon-box-border: rgba(168, 85, 247, 0.35);
+  --pm-icon-box-hover: rgba(192, 132, 252, 0.7);
+
+  /* Scrollbars */
+  --pm-scrollbar-track: #21012e;
+  --pm-scrollbar-thumb: #5c0080;
+
+  /* System & Actions */
+  --pm-success: #10b981;
+  --pm-error: #ef4444;
+  --pm-whatsapp: #059669;
+  --pm-whatsapp-hover: #10b981;
+  --pm-red: #f43f5e;
+  --pm-red-glow: rgba(244, 63, 94, 0.65);
+  --pm-blue: #3b82f6;
+  --pm-blue-glow: rgba(59, 130, 246, 0.65);
+
+  /* Flagship Events — Teal Accent (AI+Compassion Global Forum) */
+  --pm-teal: #0d9488;            /* Teal 600 */
+  --pm-teal-light: #2dd4bf;      /* Teal 400 */
+  --pm-teal-dark: #0f766e;       /* Teal 700 */
+  --pm-teal-glow: rgba(13, 148, 136, 0.3);
+
+  /* 3D Glass Orbs & Story Cards */
+  --pm-orb-red-highlight: #ff80b3;
+  --pm-orb-red-base: #ff1a75;
+  --pm-orb-red-dark: #4a001a;
+  --pm-orb-red-glow: rgba(255, 26, 117, 0.8);
+  --pm-orb-blue-highlight: #a5b4fc;
+  --pm-orb-blue-base: #6366f1;
+  --pm-orb-blue-dark: #1e1b4b;
+  --pm-orb-blue-glow: rgba(99, 102, 241, 0.8);
+  --pm-story-card-bg: rgba(18, 7, 34, 0.55);
+  --pm-story-card-border: rgba(168, 85, 247, 0.22);
+  --pm-story-card-hover: rgba(168, 85, 247, 0.45);
+
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);

@@ -168,21 +168,21 @@ export default function JoinUsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-[#020309] via-[#05041b] to-[#020309] text-white">
+    <div className="min-h-screen bg-gradient-to-r from-pm-bg-gradient-from via-pm-bg-gradient-via to-pm-bg-gradient-to text-pm-text-primary">
       <Navbar />
 
       <main className="flex items-start justify-center pt-24 pb-12 px-4 sm:px-6 md:px-8">
         {/* Background Image - Full Width */}
-        <div className="fixed top-50 left-0 w-full h-full z-0 overflow-hidden">
+        <div className="fixed top-32 left-0 w-full h-full z-0 overflow-hidden pointer-events-none">
           <Image
             src="/images/formbg.png"
-            alt="Background"
+            alt=""
             fill
-            className="object-cover opacity-50"
+            className="object-cover opacity-30"
           />
         </div>
 
-        <div className="relative w-full max-w-7xl mt-15 mx-auto z-10">
+        <div className="relative w-full max-w-7xl mt-8 sm:mt-12 mx-auto z-10">
           {/* Form Content */}
           <div className={`relative z-10 transition-opacity duration-300 ${
             isTransitioning ? 'opacity-0 pointer-events-none' : 'opacity-100'

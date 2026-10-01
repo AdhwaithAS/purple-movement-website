@@ -18,20 +18,19 @@ export default function StepFour({ userName = "Friend", isAnonymous = false }: S
   if (isAnonymous) {
     return (
       <div className="w-full px-4 sm:px-6">
-        <div className="max-w-6xl mx-auto flex justify-center">
-          <div className="w-[904px] bg-slate-900 rounded-[10px] flex flex-col items-center justify-center py-10 gap-8">
-            <div className="w-80 space-y-6 flex flex-col items-center">
-              <div className="text-center text-white text-5xl font-bold font-montserrat capitalize">Thank You!</div>
-              <div className="text-center text-white text-xl font-normal font-poppins capitalize">We&apos;ve received your response.</div>
-              
-              {/* Go Home Button */}
-              <Link href="/" className="mt-4">
-                <div className="px-7 py-3.5 bg-purple-700 hover:bg-purple-600 rounded inline-flex justify-center items-center gap-1.5 transition-all duration-300 cursor-pointer">
-                  <div className="text-center text-white text-xl font-bold font-montserrat capitalize">Go Home</div>
-                  <MdHome className="w-5 h-5 text-white" />
-                </div>
-              </Link>
-            </div>
+        <div className="max-w-xl mx-auto flex justify-center">
+          <div className="w-full bg-slate-900/90 border border-purple-500/30 rounded-2xl flex flex-col items-center justify-center p-8 sm:p-12 gap-6 text-center shadow-xl">
+            <h1 className="text-white text-3xl sm:text-4xl font-bold font-montserrat">Thank You!</h1>
+            <p className="text-zinc-300 text-base sm:text-lg font-normal font-poppins">We&apos;ve received your submission.</p>
+            
+            {/* Go Home Button */}
+            <Link 
+              href="/" 
+              className="mt-2 px-8 py-3.5 bg-purple-600 hover:bg-purple-500 rounded-xl inline-flex justify-center items-center gap-2 text-white text-base font-semibold font-montserrat uppercase tracking-wider transition-all duration-300 shadow-lg shadow-purple-600/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400"
+            >
+              <span>Go Home</span>
+              <MdHome className="w-5 h-5 text-white" />
+            </Link>
           </div>
         </div>
       </div>
@@ -40,28 +39,41 @@ export default function StepFour({ userName = "Friend", isAnonymous = false }: S
 
   return (
     <div className="w-full px-4 sm:px-6">
-      <div className="max-w-3xl mx-auto">
-        <div className="bg-slate-900 rounded-xl px-5 py-8 sm:px-10 sm:py-10 text-center space-y-6 sm:space-y-8 shadow-md">
+      <div className="max-w-2xl mx-auto">
+        <div className="bg-slate-900/90 border border-purple-500/30 rounded-2xl p-8 sm:p-12 text-center space-y-6 shadow-2xl backdrop-blur-sm">
           {/* Heading */}
-          <h1 className="text-xl sm:text-3xl md:text-4xl font-bold font-montserrat text-white capitalize">
-            Thank you {userName}
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold font-montserrat text-white">
+            Thank you, <span className="text-purple-400">{userName}</span>
           </h1>
 
           {/* Subtext */}
-          <p className="text-sm sm:text-base md:text-lg font-poppins text-white/80 max-w-xl mx-auto leading-relaxed">
-            We&apos;ve received your response.
+          <p className="text-base sm:text-lg font-poppins text-zinc-300 max-w-xl mx-auto leading-relaxed">
+            We&apos;ve received your response and are thrilled to welcome you to the community.
           </p>
 
-          <div className="text-center justify-start sm:text-base md:text-lg text-white text-xl font-semibold font-poppins capitalize">Join our WhatsApp for updates.</div>
+          <p className="text-white text-base sm:text-lg font-semibold font-poppins pt-2">
+            Join our WhatsApp community for upcoming announcements and conversations:
+          </p>
+
           {/* WhatsApp Button */}
-          <div className="w-full flex justify-center">
+          <div className="w-full flex justify-center pt-2">
             <button
-            onClick={handleWhatsAppJoin}
-            className="-mt-5 sm:w-auto px-6 py-3 bg-violet-700 hover:bg-violet-600 text-white text-sm sm:text-base font-bold font-montserrat rounded-lg flex items-center justify-center gap-2 transition-all duration-300"
-          >
-            <span>Join WhatsApp</span>
-            <FaWhatsapp className="w-5 h-5 text-white" />
-          </button>
+              onClick={handleWhatsAppJoin}
+              className="px-8 py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white text-base font-bold font-montserrat rounded-xl flex items-center justify-center gap-2.5 transition-all duration-300 shadow-lg shadow-emerald-600/25 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
+            >
+              <span>Join WhatsApp Group</span>
+              <FaWhatsapp className="w-5 h-5 text-white" />
+            </button>
+          </div>
+
+          <div className="pt-4">
+            <Link 
+              href="/" 
+              className="inline-flex items-center gap-1.5 text-zinc-400 hover:text-white text-sm font-poppins transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-purple-400 rounded px-2 py-1"
+            >
+              <MdHome className="w-4 h-4" />
+              <span>Return to Home</span>
+            </Link>
           </div>
         </div>
       </div>

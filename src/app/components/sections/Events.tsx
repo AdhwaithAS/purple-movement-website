@@ -258,17 +258,18 @@ export default function Events() {
         }
         
         .swiper-pagination-bullet {
-          background: rgba(255, 255, 255, 0.4);
+          background: var(--pm-text-muted);
           width: 8px;
           height: 8px;
           transition: all 0.3s ease;
-          opacity: 1;
+          opacity: 0.6;
         }
         
         .swiper-pagination-bullet-active {
-          background: white;
+          background: var(--pm-accent);
           width: 24px;
           border-radius: 4px;
+          opacity: 1;
         }
 
         .events-swiper {

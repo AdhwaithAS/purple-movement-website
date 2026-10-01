@@ -129,8 +129,8 @@ export const Navbar = () => {
         </div>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-16 text-white">
-          <nav className="flex items-center gap-10" role="navigation">
+        <div className="hidden md:flex items-center gap-8 text-white">
+          <div className="flex items-center gap-8" role="navigation">
             {links.map((link) => (
               <Link
                 key={link.name}
@@ -139,10 +139,10 @@ export const Navbar = () => {
                   e.preventDefault();
                   handleLinkClick(link.href);
                 }}
-                className={`font-bold text-base sm:text-lg px-2 py-1 relative transition-all duration-300 focus:outline-none rounded group ${
+                className={`font-semibold text-base px-2 py-1 relative transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 rounded group ${
                   activeSection === link.href
-                    ? 'text-purple-500'
-                    : 'text-white hover:text-purple-400'
+                    ? 'text-purple-400'
+                    : 'text-zinc-200 hover:text-white'
                 }`}
               >
                 {link.name}
@@ -152,25 +152,39 @@ export const Navbar = () => {
                       ? 'w-full'
                       : 'w-0 group-hover:w-full'
                   }`}
-                ></span>
+                />
               </Link>
             ))}
-          </nav>
+          </div>
+
+          {/* Desktop Join Us Button */}
+          <Link
+            href="/join"
+            className="px-5 py-2 text-sm font-semibold uppercase tracking-wider text-white bg-purple-600 hover:bg-purple-500 border border-purple-500/30 rounded-lg shadow-md shadow-purple-600/20 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 active:scale-95"
+          >
+            Join Us
+          </Link>
         </div>
 
         {/* Hamburger (Mobile) */}
-        <div className="md:hidden">
+        <div className="md:hidden flex items-center gap-3">
+          <Link
+            href="/join"
+            className="px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-white bg-purple-600 rounded-md"
+          >
+            Join
+          </Link>
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="p-2 focus:outline-non rounded"
+            className="p-2 text-white hover:text-purple-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 rounded transition-colors"
             aria-label={isOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={isOpen}
             aria-controls="mobile-menu"
           >
             {isOpen ? (
-              <X size={28} color="white" />
+              <X size={26} color="currentColor" />
             ) : (
-              <Menu size={28} color="white" />
+              <Menu size={26} color="currentColor" />
             )}
           </button>
         </div>
