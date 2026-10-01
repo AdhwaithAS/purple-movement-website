@@ -69,7 +69,7 @@ export const metadata: Metadata = {
       'A global force of purposeful people, changemakers, and visionaries coming together to create a borderless future full of impact and possibility.',
     images: [
       {
-        url: '/image.png',
+        url: '/image.webp',
         width: 1200,
         height: 630,
         alt: 'The Purple Movement — Beyond Syllabus, Beyond Gatekeepers, Beyond Borders',
@@ -83,7 +83,7 @@ export const metadata: Metadata = {
       'A global force of purposeful people, changemakers, and visionaries coming together to create a borderless future full of impact and possibility.',
     creator: '@ThePurpleMVMT',
     site: '@ThePurpleMVMT',
-    images: ['/image.png'],
+    images: ['/image.webp'],
   },
   robots: {
     index: true,
@@ -98,7 +98,7 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: '/favicon.ico',
-    apple: '/logos/logo_pm.png',
+    apple: '/logos/logo_pm.webp',
   },
 };
 
@@ -114,10 +114,10 @@ const jsonLd = {
       logo: {
         '@type': 'ImageObject',
         '@id': `${siteUrl}/#logo`,
-        url: `${siteUrl}/logos/logo_pm.png`,
+        url: `${siteUrl}/logos/logo_pm.webp`,
         caption: 'The Purple Movement Logo',
       },
-      image: `${siteUrl}/image.png`,
+      image: `${siteUrl}/image.webp`,
       description:
         'A global force of purposeful people, changemakers, and visionaries coming together to create a borderless future full of impact and possibility.',
       sameAs: [

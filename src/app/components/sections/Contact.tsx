@@ -59,7 +59,7 @@ export const Contact = () => {
       {/* Image Section */}
       <div className="relative w-20 h-20 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-56 lg:h-56 flex-shrink-0 hidden sm:block">
         <Image 
-          src="/images/qtnmark.png" 
+          src="/images/qtnmark.webp" 
           alt="Question Mark"
           fill
           className="object-contain"

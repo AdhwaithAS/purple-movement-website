@@ -32,6 +32,150 @@ interface FlagshipEventData {
 const flagshipEvents: FlagshipEventData[] = [
   {
     id: "01",
+    title: "AI + Compassion",
+    subtitle: "Global Forum 2026 · Kyoto & Global Relay",
+    description:
+      "AI + Compassion is Purple Movement's most ambitious international initiative — a 24-hour global conversation exploring how artificial intelligence can serve humanity and the planet. Uniting innovators, policymakers, and cultural leaders across 12 world regions, the forum asks how technology and nature can thrive together.",
+    stats: [
+      {
+        icon: (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <circle cx="12" cy="12" r="10" />
+            <polyline points="12 6 12 12 16 14" />
+          </svg>
+        ),
+        value: "24h",
+        label: "Continuous Relay",
+      },
+      {
+        icon: (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <circle cx="12" cy="12" r="10" />
+            <line x1="2" y1="12" x2="22" y2="12" />
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+          </svg>
+        ),
+        value: "12",
+        label: "World Regions",
+      },
+      {
+        icon: (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
+            <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+          </svg>
+        ),
+        value: "28+",
+        label: "Global Leaders",
+      },
+    ],
+    features: [
+      {
+        icon: (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" />
+            <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+          </svg>
+        ),
+        title: "Harmony Across Systems",
+        desc: "Designing AI to coexist with natural ecosystems.",
+      },
+      {
+        icon: (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M21.42 10.922a1 1 0 0 0-.019-.838L12.83 3.18a2 2 0 0 0-1.66 0L2.6 10.084a1 1 0 0 0 0 1.832l8.57 6.908a2 2 0 0 0 1.66 0l8.57-6.908a1 1 0 0 0 .02-.832z" />
+            <path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5" />
+          </svg>
+        ),
+        title: "Education for Co-Flourishing",
+        desc: "Cultivating AI literacy and eco-social awareness.",
+      },
+      {
+        icon: (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            <path d="m9 12 2 2 4-4" />
+          </svg>
+        ),
+        title: "Trust & Accountability",
+        desc: "Closing the trust gap through ethics and transparency.",
+      },
+    ],
+    ctaText: "Explore AI + Compassion",
+    link: "https://compassionai.io/",
+    imageSrc: "/images/aic.webp",
+    imageAlt: "AI + Compassion Global Forum 2026 — Purple Movement",
+  },
+  {
+    id: "02",
     title: "Beyond Syllabus",
     subtitle: "AI-Powered University Learning Guide",
     description:
@@ -174,153 +318,10 @@ const flagshipEvents: FlagshipEventData[] = [
     ],
     ctaText: "Explore Beyond Syllabus",
     link: "https://wiki-syllabus.vercel.app/",
-    imageSrc: "/images/hkbr.jpg",
+    imageSrc: "/images/beyondsylabbus.webp",
     imageAlt: "Beyond Syllabus — AI-Powered University Learning Guide by Purple Movement",
   },
-  {
-    id: "02",
-    title: "AI + Compassion",
-    subtitle: "Global Forum 2026 · Kyoto & Global Relay",
-    description:
-      "AI + Compassion is Purple Movement's most ambitious international initiative — a 24-hour global conversation exploring how artificial intelligence can serve humanity and the planet. Uniting innovators, policymakers, and cultural leaders across 12 world regions, the forum asks how technology and nature can thrive together.",
-    stats: [
-      {
-        icon: (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            aria-hidden="true"
-          >
-            <circle cx="12" cy="12" r="10" />
-            <polyline points="12 6 12 12 16 14" />
-          </svg>
-        ),
-        value: "24h",
-        label: "Continuous Relay",
-      },
-      {
-        icon: (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            aria-hidden="true"
-          >
-            <circle cx="12" cy="12" r="10" />
-            <line x1="2" y1="12" x2="22" y2="12" />
-            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-          </svg>
-        ),
-        value: "12",
-        label: "World Regions",
-      },
-      {
-        icon: (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            aria-hidden="true"
-          >
-            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-            <circle cx="9" cy="7" r="4" />
-            <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-          </svg>
-        ),
-        value: "28+",
-        label: "Global Leaders",
-      },
-    ],
-    features: [
-      {
-        icon: (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            aria-hidden="true"
-          >
-            <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" />
-            <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
-          </svg>
-        ),
-        title: "Harmony Across Systems",
-        desc: "Designing AI to coexist with natural ecosystems.",
-      },
-      {
-        icon: (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            aria-hidden="true"
-          >
-            <path d="M21.42 10.922a1 1 0 0 0-.019-.838L12.83 3.18a2 2 0 0 0-1.66 0L2.6 10.084a1 1 0 0 0 0 1.832l8.57 6.908a2 2 0 0 0 1.66 0l8.57-6.908a1 1 0 0 0 .02-.832z" />
-            <path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5" />
-          </svg>
-        ),
-        title: "Education for Co-Flourishing",
-        desc: "Cultivating AI literacy and eco-social awareness.",
-      },
-      {
-        icon: (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            aria-hidden="true"
-          >
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-            <path d="m9 12 2 2 4-4" />
-          </svg>
-        ),
-        title: "Trust & Accountability",
-        desc: "Closing the trust gap through ethics and transparency.",
-      },
-    ],
-    ctaText: "Explore AI + Compassion",
-    link: "https://compassionai.io/",
-    imageSrc: "/images/aic.jpg",
-    imageAlt: "AI + Compassion Global Forum 2026 — Purple Movement",
-  },
+  
 ];
 
 export default function FlagshipEvents() {

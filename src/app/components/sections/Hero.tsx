@@ -17,7 +17,7 @@ export function Hero() {
         <source src="/videos/hero-bg.mp4" type="video/mp4" />
       </video>
 
-      {/* <Image src={"/image.png"}         className="absolute inset-0 w-full h-full object-cover" */}
+      {/* <Image src={"/image.webp"}         className="absolute inset-0 w-full h-full object-cover" */}
 {/* width={100} sizes='fill' height={100} alt='img'/> */}
 
       {/* Dark overlay for better text readability */}

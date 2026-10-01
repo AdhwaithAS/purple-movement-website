@@ -43,7 +43,7 @@ export const CallToAction = () => {
       <div className="w-44 h-44 sm:w-60 sm:h-60 md:w-80 md:h-80 relative shrink-0 z-10 flex items-center justify-center">
           <Image 
             fill
-            src="/images/spiral.png"
+            src="/images/spiral.webp"
             alt="Purple Movement spiral illustration"
             className="object-contain"
             sizes="(max-width: 640px) 176px, (max-width: 768px) 240px, 320px"

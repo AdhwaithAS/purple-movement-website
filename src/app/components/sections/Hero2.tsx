@@ -13,7 +13,7 @@ export function Hero2() {
       {/* Background Cosmic Planet Image */}
       <div className="absolute inset-0 w-full h-full select-none pointer-events-none">
         <Image
-          src="/image.png"
+          src="/image.webp"
           alt="The Purple Movement — Cosmic Planet with Glowing Orbit"
           fill
           priority
@@ -22,7 +22,7 @@ export function Hero2() {
           sizes="100vw"
         />
 
-        {/* Ambient Video Overlay layered over image.png tilted 20 degrees */}
+        {/* Ambient Video Overlay layered over image.webp tilted 20 degrees */}
         <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
           <video
             autoPlay

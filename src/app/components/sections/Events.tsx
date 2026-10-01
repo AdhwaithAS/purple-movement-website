@@ -13,45 +13,50 @@ import 'swiper/css/navigation';
 
 const events = [
   {
-    image: "/images/flow.png",
+    image: "/images/aic.webp",
+    text: "Ai+Compassion"
+  },
+  {
+    image: "/images/flow.webp",
     text: "Enter the Flow"
   },
   {
-    image: "/images/saddle.jpg",
+    image: "/images/beyondsylabbus.webp",
+    text: "Enter the Flow"
+  },
+  {
+    image: "/images/saddle.webp",
     text: "Saddle #1"
   },
   {
-    image: "/images/p80-1.jpg",
+    image: "/images/p80-1.webp",
     text: "PRN:80"
   },
   {
-    image: "/images/p80-2.jpg",
+    image: "/images/p80-2.webp",
     text: "STI:80"
   },
   {
-    image: "/images/p80-3.jpg",
+    image: "/images/p80-3.webp",
     text: "AEC&B:80"
   },
   {
-    image: "/images/saddle2.jpg",
+    image: "/images/saddle2.webp",
     text: "Saddle #2"
   },
   {
-    image: "/images/hkbr.jpg",
+    image: "/images/hkbr.webp",
     text: "Hacktober Fest"
   },
   {
-    image: "/images/p80-4.jpg",
+    image: "/images/p80-4.webp",
     text: "AEC&B:80"
   },
   {
-    image: "/images/p80-5.jpg",
+    image: "/images/p80-5.webp",
     text: "PRN:80"
   },
-  {
-    image: "/images/aic.jpg",
-    text: "Ai+Compassion"
-  }
+ 
 ];
 
 export default function Events() {

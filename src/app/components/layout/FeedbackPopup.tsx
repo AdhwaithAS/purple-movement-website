@@ -16,11 +16,11 @@ export default function FeedbackPopup({ isOpen, onClose }: FeedbackPopupProps) {
   const [statusMessage, setStatusMessage] = useState<string | null>(null)
 
   const reactions = [
-    { id: 'very-sad', src: '/images/fbr1.png', alt: 'Very Sad' },
-    { id: 'sad', src: '/images/fbr2.png', alt: 'Sad' },
-    { id: 'neutral', src: '/images/fbr3.png', alt: 'Neutral' },
-    { id: 'happy', src: '/images/fbr4.png', alt: 'Happy' },
-    { id: 'very-happy', src: '/images/fbr5.png', alt: 'Very Happy' }
+    { id: 'very-sad', src: '/images/fbr1.webp', alt: 'Very Sad' },
+    { id: 'sad', src: '/images/fbr2.webp', alt: 'Sad' },
+    { id: 'neutral', src: '/images/fbr3.webp', alt: 'Neutral' },
+    { id: 'happy', src: '/images/fbr4.webp', alt: 'Happy' },
+    { id: 'very-happy', src: '/images/fbr5.webp', alt: 'Very Happy' }
   ]
 
   const handleReactionClick = (reactionId: string) => {

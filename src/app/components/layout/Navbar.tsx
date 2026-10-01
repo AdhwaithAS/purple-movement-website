@@ -169,7 +169,7 @@ export const Navbar = () => {
             aria-label="The Purple Movement Home"
           >
             <Image
-              src="/logos/logo_pm.png"
+              src="/logos/logo_pm.webp"
               width={110}
               height={44}
               alt="The Purple Movement Logo"

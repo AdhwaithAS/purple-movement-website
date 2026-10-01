@@ -175,7 +175,7 @@ export default function JoinUsPage() {
         {/* Background Image - Full Width */}
         <div className="fixed top-32 left-0 w-full h-full z-0 overflow-hidden pointer-events-none">
           <Image
-            src="/images/formbg.png"
+            src="/images/formbg.webp"
             alt=""
             fill
             className="object-cover opacity-30"

@@ -67,7 +67,7 @@ export const Footer = () => {
                 width={183}
                 height={59}
                 className="w-40 h-14"
-                src="/logos/logo_pm.png"
+                src="/logos/logo_pm.webp"
                 alt="Logo"
                 style={{ width: 'auto' }}
               />
@@ -149,7 +149,7 @@ export const Footer = () => {
                 width={183}
                 height={59}
                 className="w-40 h-14"
-                src="/logos/logo_pm.png"
+                src="/logos/logo_pm.webp"
                 alt="Logo"
                 style={{ width: 'auto' }}
               />
