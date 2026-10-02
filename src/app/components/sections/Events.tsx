@@ -13,45 +13,50 @@ import 'swiper/css/navigation';
 
 const events = [
   {
-    image: "/images/flow.png",
+    image: "/images/aic.webp",
+    text: "Ai+Compassion"
+  },
+  {
+    image: "/images/flow.webp",
     text: "Enter the Flow"
   },
   {
-    image: "/images/saddle.jpg",
+    image: "/images/beyondsylabbus.webp",
+    text: "Enter the Flow"
+  },
+  {
+    image: "/images/saddle.webp",
     text: "Saddle #1"
   },
   {
-    image: "/images/p80-1.jpg",
+    image: "/images/p80-1.webp",
     text: "PRN:80"
   },
   {
-    image: "/images/p80-2.jpg",
+    image: "/images/p80-2.webp",
     text: "STI:80"
   },
   {
-    image: "/images/p80-3.jpg",
+    image: "/images/p80-3.webp",
     text: "AEC&B:80"
   },
   {
-    image: "/images/saddle2.jpg",
+    image: "/images/saddle2.webp",
     text: "Saddle #2"
   },
   {
-    image: "/images/hkbr.jpg",
+    image: "/images/hkbr.webp",
     text: "Hacktober Fest"
   },
   {
-    image: "/images/p80-4.jpg",
+    image: "/images/p80-4.webp",
     text: "AEC&B:80"
   },
   {
-    image: "/images/p80-5.jpg",
+    image: "/images/p80-5.webp",
     text: "PRN:80"
   },
-  {
-    image: "/images/aic.jpg",
-    text: "Ai+Compassion"
-  }
+ 
 ];
 
 export default function Events() {
@@ -68,7 +73,7 @@ export default function Events() {
 
   return (
     <div
-      className="w-full py-16 bg-black flex flex-col justify-center items-center gap-8 px-4"
+      className="w-full py-16 bg-black flex flex-col justify-center items-center gap-8 px-4 scroll-mt-20"
       id="events"
     >
       {/* Title */}
@@ -258,17 +263,18 @@ export default function Events() {
         }
         
         .swiper-pagination-bullet {
-          background: rgba(255, 255, 255, 0.4);
+          background: var(--pm-text-muted);
           width: 8px;
           height: 8px;
           transition: all 0.3s ease;
-          opacity: 1;
+          opacity: 0.6;
         }
         
         .swiper-pagination-bullet-active {
-          background: white;
+          background: var(--pm-accent);
           width: 24px;
           border-radius: 4px;
+          opacity: 1;
         }
 
         .events-swiper {

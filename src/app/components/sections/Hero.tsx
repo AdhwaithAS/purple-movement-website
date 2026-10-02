@@ -1,4 +1,7 @@
+'use client'
+
 import Link from 'next/link'
+import { motion } from 'framer-motion'
 
 export function Hero() {
   return (
@@ -14,45 +17,82 @@ export function Hero() {
         <source src="/videos/hero-bg.mp4" type="video/mp4" />
       </video>
 
+      {/* <Image src={"/image.webp"}         className="absolute inset-0 w-full h-full object-cover" */}
+{/* width={100} sizes='fill' height={100} alt='img'/> */}
+
       {/* Dark overlay for better text readability */}
-      <div className="absolute inset-0 bg-black/40 z-[1]" />
+      <div className="absolute inset-0 bg-black/50 z-[1]" />
+
+      {/* Ambient background aura */}
+      <motion.div
+        animate={{
+          scale: [1, 1.15, 1],
+          opacity: [0.15, 0.28, 0.15],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute w-[500px] h-[500px] rounded-full bg-purple-600/30 blur-[120px] pointer-events-none z-[2]"
+      />
 
       {/* Content overlay */}
-      <div className="relative z-10 text-center max-w-4xl mx-auto px-4 md:-mt-40 -mt-20">
-        <main className="flex flex-col items-center">
-          <div className="w-full flex flex-col justify-start items-center gap-4">
-            {/* Heading 1 */}
-            <h1 className="text-white text-2xl sm:text-3xl md:text-4xl font-bold uppercase">
+      <div className="relative z-10 text-center max-w-4xl mx-auto px-4 md:-mt-32 -mt-6">
+        <div className="flex flex-col items-center">
+          <div className="w-full flex flex-col justify-start items-center gap-5">
+            {/* Eyebrow */}
+            <motion.span
+              initial={{ opacity: 0, y: 15, filter: "blur(4px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              className="text-purple-300/90 text-sm sm:text-base md:text-lg font-semibold tracking-widest uppercase font-montserrat"
+            >
               We Are the
-            </h1>
+            </motion.span>
 
-            {/* Heading 2 */}
-            <h2 className="bg-gradient-to-t from-[#8E00FF] to-[#D8B0FA] bg-clip-text text-transparent 
-              text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold uppercase font-montserrat">
-              Purple Movement
-            </h2>
+            {/* Main Title */}
+            <motion.h1
+              initial={{ opacity: 0, y: 25, filter: "blur(8px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+              className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold uppercase font-montserrat tracking-tight"
+            >
+              Purple <span className="text-purple-400">Movement</span>
+            </motion.h1>
 
             {/* Subtext */}
-            <p className="text-white/75 text-base sm:text-lg md:text-xl font-thin font-poppins capitalize px-2">
-             Where purposeful people gather to explore, tackle issues, and create 
-meaningful change. 
-A community without barriers, where your skills matter and open new 
-possibilities. 
-Sounds like you? 
-            </p>
-            
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              className="text-zinc-200 text-base sm:text-lg md:text-xl font-normal font-poppins leading-relaxed max-w-2xl px-2"
+            >
+              Where purposeful people gather to explore, tackle issues, and create 
+              meaningful change. A community without barriers, where your skills matter 
+              and open new possibilities. Sounds like you?
+            </motion.p>
 
             {/* CTA Button */}
-            <Link
-              href="/join"
-              className="mt-4 w-32 sm:w-40 h-10 px-4 py-2 bg-purple-700 rounded-md 
-              flex justify-center items-center hover:bg-black hover:border hover:border-purple-500 
-              transition-all duration-300 text-stone-50 text-base sm:text-lg font-semibold uppercase"
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
             >
-              Join Us
-            </Link>
+              <Link
+                href="/join"
+                className="mt-4 px-8 py-3.5 bg-purple-600 hover:bg-purple-500 border border-purple-500/40 
+                rounded-lg flex justify-center items-center shadow-lg shadow-purple-600/25
+                transition-colors duration-200 text-white text-base sm:text-lg font-semibold uppercase tracking-wider
+                focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+              >
+                Join Us
+              </Link>
+            </motion.div>
           </div>
-        </main>
+        </div>
       </div>
     </section>
   )

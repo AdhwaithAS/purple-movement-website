@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
+import { X } from 'lucide-react'
 
 interface FeedbackPopupProps {
   isOpen: boolean
@@ -12,36 +13,42 @@ export default function FeedbackPopup({ isOpen, onClose }: FeedbackPopupProps) {
   const [feedback, setFeedback] = useState('')
   const [selectedReaction, setSelectedReaction] = useState<string | null>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [statusMessage, setStatusMessage] = useState<string | null>(null)
 
   const reactions = [
-    { id: 'very-sad', src: '/images/fbr1.png', alt: 'Very Sad' },
-    { id: 'sad', src: '/images/fbr2.png', alt: 'Sad' },
-    { id: 'neutral', src: '/images/fbr3.png', alt: 'Neutral' },
-    { id: 'happy', src: '/images/fbr4.png', alt: 'Happy' },
-    { id: 'very-happy', src: '/images/fbr5.png', alt: 'Very Happy' }
+    { id: 'very-sad', src: '/images/fbr1.webp', alt: 'Very Sad' },
+    { id: 'sad', src: '/images/fbr2.webp', alt: 'Sad' },
+    { id: 'neutral', src: '/images/fbr3.webp', alt: 'Neutral' },
+    { id: 'happy', src: '/images/fbr4.webp', alt: 'Happy' },
+    { id: 'very-happy', src: '/images/fbr5.webp', alt: 'Very Happy' }
   ]
 
   const handleReactionClick = (reactionId: string) => {
     setSelectedReaction(selectedReaction === reactionId ? null : reactionId)
   }
 
-  // Prevent body scrolling when popup is open
+  // Prevent body scrolling and handle Escape key
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden'
+      const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key === 'Escape') onClose()
+      }
+      window.addEventListener('keydown', handleKeyDown)
+      return () => {
+        document.body.style.overflow = 'auto'
+        window.removeEventListener('keydown', handleKeyDown)
+      }
     } else {
       document.body.style.overflow = 'auto'
     }
-    
-    return () => {
-      document.body.style.overflow = 'auto'
-    }
-  }, [isOpen])
+  }, [isOpen, onClose])
 
   const handleSubmit = async () => {
     if (!feedback.trim() && !selectedReaction) return
     
     setIsSubmitting(true)
+    setStatusMessage(null)
     
     try {
       const response = await fetch('/api/feedback', {
@@ -61,13 +68,16 @@ export default function FeedbackPopup({ isOpen, onClose }: FeedbackPopupProps) {
         throw new Error('Failed to submit feedback')
       }
 
-      // Reset form and close popup
-      setFeedback('')
-      setSelectedReaction(null)
-      onClose()
+      setStatusMessage('Thank you for your feedback!')
+      setTimeout(() => {
+        setFeedback('')
+        setSelectedReaction(null)
+        setStatusMessage(null)
+        onClose()
+      }, 1200)
     } catch (error) {
       console.error('Error submitting feedback:', error)
-      // You can add error handling UI here
+      setStatusMessage('Failed to send feedback. Please try again.')
     } finally {
       setIsSubmitting(false)
     }
@@ -83,133 +93,98 @@ export default function FeedbackPopup({ isOpen, onClose }: FeedbackPopupProps) {
 
   return (
     <div 
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black p-2 sm:p-4"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-4 sm:p-6 transition-all duration-300"
       onClick={handleBackdropClick}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="feedback-dialog-title"
     >
-      {/* Mobile Layout */}
-      <div className="block md:hidden w-full max-w-[90vw] sm:max-w-[500px] h-auto max-h-[90vh] bg-slate-900 rounded-[15px] sm:rounded-[20px] overflow-y-auto relative p-4 sm:p-6">
+      <div className="w-full max-w-lg bg-pm-bg-dark border border-pm-border-hover rounded-3xl shadow-2xl p-6 sm:p-8 relative flex flex-col items-center gap-6 animate-scale-up">
         {/* Close button */}
         <button
           onClick={onClose}
-          className="absolute top-3 right-3 sm:top-4 sm:right-4 text-white/60 hover:text-white text-xl sm:text-2xl z-10 transition-colors"
+          className="absolute top-5 right-5 p-2 text-pm-text-muted hover:text-pm-text-primary hover:bg-pm-card rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pm-accent"
+          aria-label="Close feedback modal"
         >
-          ×
+          <X className="w-5 h-5" />
         </button>
 
         {/* Main heading */}
-        <div className="text-center mb-4 sm:mb-6 pt-2 sm:pt-0">
-          <h2 className="text-white text-xl xs:text-2xl sm:text-3xl font-bold font-montserrat tracking-wide leading-tight">
+        <div className="text-center pt-2">
+          <h2 id="feedback-dialog-title" className="text-pm-text-primary text-2xl sm:text-3xl font-bold font-montserrat tracking-tight">
             How helpful was this?
           </h2>
+          <p className="text-pm-text-muted text-sm font-poppins mt-1">
+            Let us know what you think or how we can improve.
+          </p>
         </div>
 
         {/* Reactions section */}
-        <div className="flex justify-center items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
-          {reactions.map((reaction) => (
-            <button
-              key={reaction.id}
-              onClick={() => handleReactionClick(reaction.id)}
-              className={`transition-all duration-200 hover:opacity-100 hover:scale-110 ${
-                selectedReaction === reaction.id 
-                  ? 'opacity-100 scale-110' 
-                  : 'opacity-25'
-              }`}
-              title={reaction.alt}
-            >
-              <Image
-                src={reaction.src}
-                alt={reaction.alt}
-                width={48}
-                height={48}
-                className="object-contain w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12"
-              />
-            </button>
-          ))}
+        <div className="flex justify-center items-center gap-3 sm:gap-5" role="group" aria-label="Reaction ratings">
+          {reactions.map((reaction) => {
+            const isSelected = selectedReaction === reaction.id
+            return (
+              <button
+                key={reaction.id}
+                type="button"
+                onClick={() => handleReactionClick(reaction.id)}
+                aria-pressed={isSelected}
+                aria-label={reaction.alt}
+                className={`p-2 rounded-2xl transition-all duration-200 hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pm-accent ${
+                  isSelected 
+                    ? 'bg-pm-primary/30 border border-pm-accent scale-110 opacity-100' 
+                    : 'opacity-40 hover:opacity-100 hover:bg-pm-card border border-transparent'
+                }`}
+              >
+                <Image
+                  src={reaction.src}
+                  alt={reaction.alt}
+                  width={44}
+                  height={44}
+                  className="object-contain w-9 h-9 sm:w-11 sm:h-11"
+                />
+              </button>
+            )
+          })}
         </div>
 
         {/* Feedback input */}
-        <div className="w-full mb-6">
+        <div className="w-full">
+          <label htmlFor="feedback-text-area" className="sr-only">Your feedback</label>
           <textarea
+            id="feedback-text-area"
             value={feedback}
             onChange={(e) => setFeedback(e.target.value)}
-            placeholder="Feedback"
-            className="w-full h-32 px-4 py-4 bg-transparent text-white text-sm font-poppins resize-none focus:outline-none border border-neutral-400 rounded placeholder:text-neutral-400"
+            placeholder="Share your thoughts or suggestions..."
+            className="w-full h-32 px-4 py-3 bg-pm-card text-pm-text-primary text-sm sm:text-base font-poppins resize-none rounded-xl border border-pm-card-border placeholder:text-pm-text-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pm-accent focus-visible:border-transparent transition-all"
           />
         </div>
 
-        {/* Submit button */}
-        <div className="flex justify-center">
-          <button
-            onClick={handleSubmit}
-            disabled={(!feedback.trim() && !selectedReaction) || isSubmitting}
-            className="w-full max-w-32 py-2 px-4 bg-purple-700 rounded inline-flex justify-center items-center gap-2.5 text-white text-lg font-normal font-inter disabled:opacity-50 hover:bg-purple-600 transition-colors"
-          >
-            {isSubmitting ? 'Submitting...' : 'Submit'}
-          </button>
-        </div>
-      </div>
+        {statusMessage && (
+          <p className={`text-sm font-poppins ${statusMessage.includes('Thank') ? 'text-pm-success' : 'text-pm-error'}`}>
+            {statusMessage}
+          </p>
+        )}
 
-      {/* Desktop Layout */}
-      <div className="hidden md:block w-[780px] h-[511px] bg-slate-900 rounded-[50px] overflow-hidden relative">
-        {/* Close button */}
+        {/* Submit button */}
         <button
-          onClick={onClose}
-          className="absolute top-6 right-8 text-white/60 hover:text-white text-2xl z-10 transition-colors"
+          onClick={handleSubmit}
+          disabled={(!feedback.trim() && !selectedReaction) || isSubmitting}
+          className={`w-full sm:w-auto px-10 py-3 rounded-xl font-semibold font-poppins text-base transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pm-accent ${
+            (feedback.trim() || selectedReaction) && !isSubmitting
+              ? 'bg-pm-primary hover:bg-pm-primary-hover text-pm-text-primary shadow-[var(--pm-glow)] hover:shadow-[var(--pm-glow-strong)] active:scale-95'
+              : 'bg-pm-card/40 text-pm-text-muted border border-pm-card-border cursor-not-allowed'
+          }`}
         >
-          ×
+          {isSubmitting ? (
+            <div className="flex items-center justify-center gap-2">
+              <div className="w-4 h-4 border-2 border-pm-text-primary/30 border-t-pm-text-primary rounded-full animate-spin" />
+              <span>Submitting...</span>
+            </div>
+          ) : (
+            'Submit Feedback'
+          )}
         </button>
-
-        {/* Main heading */}
-        <div className="absolute left-[121.5px] top-[66.32px]">
-          <h2 className="text-white text-5xl font-bold font-montserrat tracking-wide">
-            How helpful was this?
-          </h2>
-        </div>
-
-        {/* Reactions section */}
-        <div className="absolute left-1/2 -translate-x-1/2 top-[148px] flex justify-center items-center gap-6">
-          {reactions.map((reaction) => (
-            <button
-              key={reaction.id}
-              onClick={() => handleReactionClick(reaction.id)}
-              className={`transition-all duration-200 hover:opacity-100 hover:scale-110 ${
-                selectedReaction === reaction.id 
-                  ? 'opacity-100 scale-110' 
-                  : 'opacity-25'
-              }`}
-              title={reaction.alt}
-            >
-              <Image
-                src={reaction.src}
-                alt={reaction.alt}
-                width={50}
-                height={50}
-                className="object-contain"
-              />
-            </button>
-          ))}
-        </div>
-
-        {/* Feedback input */}
-        <div className="w-[544.59px] h-40 absolute left-[125.06px] top-[227.28px] rounded border border-neutral-400">
-          <textarea
-            value={feedback}
-            onChange={(e) => setFeedback(e.target.value)}
-            placeholder="Feedback"
-            className="w-full h-full px-4 py-4 bg-transparent text-white text-lg font-poppins resize-none focus:outline-none placeholder:text-neutral-400"
-          />
-        </div>
-
-        {/* Submit button */}
-        <div className="w-32 p-2.5 absolute left-[329px] top-[406px] bg-purple-700 rounded inline-flex justify-center items-center gap-2.5">
-          <button
-            onClick={handleSubmit}
-            disabled={(!feedback.trim() && !selectedReaction) || isSubmitting}
-            className="text-white text-xl font-normal font-inter disabled:opacity-50"
-          >
-            {isSubmitting ? 'Submitting...' : 'Submit'}
-          </button>
-        </div>
       </div>
     </div>
   )

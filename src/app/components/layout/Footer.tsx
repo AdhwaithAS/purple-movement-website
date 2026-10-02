@@ -67,7 +67,7 @@ export const Footer = () => {
                 width={183}
                 height={59}
                 className="w-40 h-14"
-                src="/logos/logo_pm.png"
+                src="/logos/logo_pm.webp"
                 alt="Logo"
                 style={{ width: 'auto' }}
               />
@@ -78,14 +78,14 @@ export const Footer = () => {
                 Beyond Syllabus, Beyond Gatekeepers, Beyond Borders
               </p>
               <div className="flex space-x-4 mt-4">
-                <a href="https://www.instagram.com/tpm.live/" className="group">
-                  <FaInstagram className="w-6 h-6 text-white/60 group-hover:text-purple-700 transition-colors" />
+                <a href="https://www.instagram.com/tpm.live/" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram" className="group p-1">
+                  <FaInstagram className="w-6 h-6 text-white/70 group-hover:text-purple-400 transition-colors" />
                 </a>
-                <a href="https://x.com/ThePurpleMVMT" className="group">
-                  <FaXTwitter className="w-6 h-6 text-white/60 group-hover:text-purple-700 transition-colors" />
+                <a href="https://x.com/ThePurpleMVMT" target="_blank" rel="noopener noreferrer" aria-label="Follow us on X" className="group p-1">
+                  <FaXTwitter className="w-6 h-6 text-white/70 group-hover:text-purple-400 transition-colors" />
                 </a>
-                <a href="https://www.linkedin.com/company/the-purple-movement/posts/?feedView=all" className="group">
-                  <FaLinkedinIn className="w-6 h-6 text-white/60 group-hover:text-purple-700 transition-colors" />
+                <a href="https://www.linkedin.com/company/the-purple-movement/posts/?feedView=all" target="_blank" rel="noopener noreferrer" aria-label="Connect on LinkedIn" className="group p-1">
+                  <FaLinkedinIn className="w-6 h-6 text-white/70 group-hover:text-purple-400 transition-colors" />
                 </a>
               </div>
             </div>
@@ -94,16 +94,16 @@ export const Footer = () => {
             <div className="grid grid-cols-2 gap-6">
               {/* Quick Links - Left side */}
               <div className="space-y-4 flex flex-col items-start pl-4">
-                <h4 className="text-left text-white text-base font-extrabold font-roboto leading-relaxed">
+                <h4 className="text-left text-white text-base font-bold font-montserrat leading-relaxed">
                   Quick Links
                 </h4>
-                <nav className="flex flex-col space-y-1.5 items-start">
+                <nav className="flex flex-col space-y-2 items-start">
                   {links.map((item) => (
                     <a
                       key={item.name}
                       href={item.href}
                       onClick={(e) => handleLinkClick(e, item.href)}
-                      className="text-left text-white text-sm font-normal font-poppins leading-relaxed hover:text-purple-400 transition-colors"
+                      className="text-left text-zinc-300 text-sm font-normal font-poppins leading-relaxed hover:text-purple-400 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-purple-400 rounded"
                     >
                       {item.name}
                     </a>
@@ -113,16 +113,16 @@ export const Footer = () => {
 
               {/* Support Links - Right side */}
               <div className="space-y-4 flex flex-col items-end pr-4">
-                <h4 className="text-right text-white text-base font-extrabold font-roboto leading-relaxed">
+                <h4 className="text-right text-white text-base font-bold font-montserrat leading-relaxed">
                   Support
                 </h4>
-                <nav className="flex flex-col space-y-1.5 items-end">
+                <nav className="flex flex-col space-y-2 items-end">
                   {supportLinks.map((item) => (
                     item.action === 'feedback' ? (
                       <button
                         key={item.name}
                         onClick={() => setIsFeedbackOpen(true)}
-                        className="text-right text-white text-sm font-normal font-poppins leading-relaxed hover:text-purple-400 transition-colors"
+                        className="text-right text-zinc-300 text-sm font-normal font-poppins leading-relaxed hover:text-purple-400 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-purple-400 rounded"
                       >
                         {item.name}
                       </button>
@@ -130,7 +130,7 @@ export const Footer = () => {
                       <a
                         key={item.name}
                         href={item.href}
-                        className="text-right text-white text-sm font-normal font-poppins leading-relaxed hover:text-purple-400 transition-colors"
+                        className="text-right text-zinc-300 text-sm font-normal font-poppins leading-relaxed hover:text-purple-400 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-purple-400 rounded"
                       >
                         {item.name}
                       </a>
@@ -142,48 +142,48 @@ export const Footer = () => {
           </div>
 
           {/* Desktop Layout - 3 columns */}
-          <div className="hidden md:grid md:grid-cols-3 gap-10">
+          <div className="hidden md:grid md:grid-cols-3 gap-12 items-start">
             {/* Logo, Tagline, and Social Links */}
             <div className="space-y-4 flex flex-col items-start">
               <Image
                 width={183}
                 height={59}
                 className="w-40 h-14"
-                src="/logos/logo_pm.png"
+                src="/logos/logo_pm.webp"
                 alt="Logo"
                 style={{ width: 'auto' }}
               />
-              <h3 className="text-white text-lg sm:text-xl font-bold font-poppins">
+              <h3 className="text-white text-lg sm:text-xl font-bold font-montserrat">
                 The Purple Movement
               </h3>
-              <p className="text-white/75 text-sm sm:text-base font-poppins">
+              <p className="text-zinc-300 text-sm sm:text-base font-poppins">
                 Beyond Syllabus, Beyond Gatekeepers, Beyond Borders
               </p>
-              <div className="flex space-x-4 mt-4">
-                <a href="https://www.instagram.com/tpm.live/" className="group">
-                  <FaInstagram className="w-6 h-6 sm:w-7 sm:h-7 text-white/60 group-hover:text-purple-700 transition-colors" />
+              <div className="flex space-x-4 mt-2">
+                <a href="https://www.instagram.com/tpm.live/" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram" className="group p-1">
+                  <FaInstagram className="w-6 h-6 text-white/70 group-hover:text-purple-400 transition-colors" />
                 </a>
-                <a href="https://x.com/ThePurpleMVMT" className="group">
-                  <FaXTwitter className="w-6 h-6 sm:w-7 sm:h-7 text-white/60 group-hover:text-purple-700 transition-colors" />
+                <a href="https://x.com/ThePurpleMVMT" target="_blank" rel="noopener noreferrer" aria-label="Follow us on X" className="group p-1">
+                  <FaXTwitter className="w-6 h-6 text-white/70 group-hover:text-purple-400 transition-colors" />
                 </a>
-                <a href="https://www.linkedin.com/company/the-purple-movement/posts/?feedView=all" className="group">
-                  <FaLinkedinIn className="w-6 h-6 sm:w-7 sm:h-7 text-white/60 group-hover:text-purple-700 transition-colors" />
+                <a href="https://www.linkedin.com/company/the-purple-movement/posts/?feedView=all" target="_blank" rel="noopener noreferrer" aria-label="Connect on LinkedIn" className="group p-1">
+                  <FaLinkedinIn className="w-6 h-6 text-white/70 group-hover:text-purple-400 transition-colors" />
                 </a>
               </div>
             </div>
 
             {/* Quick Links */}
-            <div className="space-y-4 flex flex-col items-center justify-center ml-16">
-              <h4 className="text-center text-white text-lg font-extrabold font-roboto leading-relaxed">
+            <div className="space-y-4 flex flex-col items-center">
+              <h4 className="text-center text-white text-lg font-bold font-montserrat leading-relaxed">
                 Quick Links
               </h4>
-              <nav className="flex flex-col space-y-2 items-center">
+              <nav className="flex flex-col space-y-2.5 items-center">
                 {links.map((item) => (
                   <a
                     key={item.name}
                     href={item.href}
                     onClick={(e) => handleLinkClick(e, item.href)}
-                    className="text-center text-white text-base font-normal font-poppins leading-relaxed hover:text-purple-400 transition-colors"
+                    className="text-center text-zinc-300 text-base font-normal font-poppins leading-relaxed hover:text-purple-400 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-purple-400 rounded"
                   >
                     {item.name}
                   </a>
@@ -192,17 +192,17 @@ export const Footer = () => {
             </div>
 
             {/* Support Links */}
-            <div className="space-y-4 flex flex-col items-center justify-center ml-16 ">
-              <h4 className="text-center text-white text-lg font-extrabold font-roboto leading-relaxed">
+            <div className="space-y-4 flex flex-col items-center">
+              <h4 className="text-center text-white text-lg font-bold font-montserrat leading-relaxed">
                 Support
               </h4>
-              <nav className="flex flex-col space-y-2 items-center">
+              <nav className="flex flex-col space-y-2.5 items-center">
                 {supportLinks.map((item) => (
                   item.action === 'feedback' ? (
                     <button
                       key={item.name}
                       onClick={() => setIsFeedbackOpen(true)}
-                      className="text-center text-white text-base font-normal font-poppins leading-relaxed hover:text-purple-400 transition-colors"
+                      className="text-center text-zinc-300 text-base font-normal font-poppins leading-relaxed hover:text-purple-400 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-purple-400 rounded"
                     >
                       {item.name}
                     </button>
@@ -210,7 +210,7 @@ export const Footer = () => {
                     <a
                       key={item.name}
                       href={item.href}
-                      className="text-center text-white text-base font-normal font-poppins leading-relaxed hover:text-purple-400 transition-colors"
+                      className="text-center text-zinc-300 text-base font-normal font-poppins leading-relaxed hover:text-purple-400 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-purple-400 rounded"
                     >
                       {item.name}
                     </a>
@@ -222,9 +222,9 @@ export const Footer = () => {
         </div>
 
         {/* Copyright */}
-        <div className="mt-10 pt-6 border-t border-zinc-700">
-          <p className="text-white/60 text-xs sm:text-sm font-poppins text-center">
-            © 2025 The Purple Movement. All rights reserved.
+        <div className="mt-12 pt-6 border-t border-zinc-800">
+          <p className="text-zinc-400 text-xs sm:text-sm font-poppins text-center">
+            © {new Date().getFullYear()} The Purple Movement. All rights reserved.
           </p>
         </div>
       </footer>
